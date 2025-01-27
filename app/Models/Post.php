@@ -15,20 +15,6 @@ class Post extends Model
 
     protected $fillable = ['title', 'content', 'image', 'user_id'];
 
-    public $incrementing  = false;
-
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            if (empty($model->id)) {
-                $model->id = (string) Str::uuid();
-            }
-        });
-    }
-
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);

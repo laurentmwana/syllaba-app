@@ -77,6 +77,111 @@ body {
     }
 }
 
+@layer fields {
+    .select-wrapper {
+        position: relative;
+        width: 100%;
+      }
+
+    .select-button {
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 36px;
+        width: 100%;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: transparent;
+        padding: 4px 12px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .placeholder {
+        color: #888;
+    }
+
+    .selected-option {
+        display: flex;
+        align-items: center;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+        padding: 2px 8px;
+        margin-right: 4px;
+        margin-bottom: 4px;
+        font-size: 12px;
+    }
+
+    .remove-option {
+        margin-left: 4px;
+        cursor: pointer;
+    }
+
+    .dropdown {
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        margin-top: 4px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 12px;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 8px;
+    }
+
+    .separator {
+        height: 1px;
+        background-color: #ccc;
+        margin: 8px 0;
+    }
+
+    .options-list {
+        max-height: 240px;
+        overflow-y: auto;
+    }
+
+    .option {
+        padding: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        border-radius: 4px;
+        margin-bottom: 4px;
+    }
+
+    .option:hover,
+    .option.selected {
+        background-color: #f0f0f0;
+    }
+
+    .is-pending {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .loader {
+        animation: spin 1s linear infinite;
+        margin-right: 8px;
+    }
+
+}
+
 @layer utilities {
     .animate-loader {
         animation: loader-bounce cubic-bezier(0.455, 0.03, 0.515, 0.955)
@@ -107,7 +212,7 @@ body {
     }
 
     .container-center {
-        @apply mx-auto max-w-7xl;
+        @apply mx-auto max-w-5xl;
     }
 
     .container-card {

@@ -12,18 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('name', 20)->unique();
             $table->text('description')->null();
             $table->timestamps();
         });
 
         Schema::create('category_post', function (Blueprint $table) {
-            $table->foreignUuid('category_id')
+            $table->foreignId('category_id')
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-            $table->foreignUuid('post_id')
+            $table->foreignId('post_id')
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();

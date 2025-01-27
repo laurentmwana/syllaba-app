@@ -13,16 +13,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->foreignUuid('post_id')
+            $table->id();
+            $table->foreignId('post_id')
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-            $table->foreignUuid('user_id')
+            $table->foreignId('user_id')
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-            $table->text('message'); 
+            $table->text('message');
             $table->enum('status', array_map(fn (CommentStateEnum $enum) => $enum->value, CommentStateEnum::cases()))
                 ->default(CommentStateEnum::OPEN->value);
             $table->timestamps();

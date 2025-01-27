@@ -12,18 +12,4 @@ class Comment extends Model
     use HasFactory;
 
     protected $fillable = ['post_id', 'user_id', 'message', 'status'];
-
-    public $incrementing  = false;
-
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            if (empty($model->id)) {
-                $model->id = (string) Str::uuid();
-            }
-        });
-    }
 }

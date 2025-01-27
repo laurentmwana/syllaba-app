@@ -14,19 +14,6 @@ class Category extends Model
 
     protected $fillable = ['name', 'description'];
 
-    public $incrementing  = false;
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            if (empty($model->id)) {
-                $model->id = (string) Str::uuid();
-            }
-        });
-    }
-
     public function posts(): BelongsToMany
     {
         return $this->belongsToMany(Post::class);

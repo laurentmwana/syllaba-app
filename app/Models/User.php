@@ -25,8 +25,6 @@ class User extends Authenticatable
         'role'
     ];
 
-    public $incrementing  = false;
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -48,16 +46,5 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            if (empty($model->id)) {
-                $model->id = (string) Str::uuid();
-            }
-        });
     }
 }
