@@ -12,8 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('name', 20)->unique();
+            $table->text('description')->null();
             $table->timestamps();
+        });
+
+        Schema::create('category_post', function (Blueprint $table) {
+            $table->foreignUuid('category_id')
+                ->constrained()
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+            $table->foreignUuid('post_id')
+                ->constrained()
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+            $table->primary(['category_id', 'post_id']);
         });
     }
 
@@ -23,5 +37,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('categories');
+        Schema::dropIfExists('post_category');
     }
 };

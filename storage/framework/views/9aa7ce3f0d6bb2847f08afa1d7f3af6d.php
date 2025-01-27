@@ -1,0 +1,1 @@
+<?php /**PATH F:\laravel-app\syllaba-app\resources\views/base/about.blade.php ENDPATH**/ ?>

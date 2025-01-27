@@ -107,7 +107,7 @@ body {
     }
 
     .container-center {
-        @apply mx-auto max-w-5xl;
+        @apply mx-auto max-w-7xl;
     }
 
     .container-card {
