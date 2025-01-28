@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Post extends Model
@@ -23,5 +24,26 @@ class Post extends Model
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
+    }
+
+
+    public static function findPaginated(): LengthAwarePaginator
+    {
+        $query = request()->query->get('search');
+
+        $builder = self::with(['categories'])->orderByDesc('updated_at');
+
+        if (null === $query || empty($query)) {
+            return $builder->paginate();
+        }
+
+        return $builder->where(function ($q) use ($query) {
+            $q->whereLike('title', "%$query%")
+                ->orWhereLike('image', "%$query%")
+                ->orWhereLike('content', "%$query%")
+                ->orWhereLike('updated_at', "%$query%")
+                ->orWhereLike('created_at', "%$query%");
+        })
+            ->paginate();
     }
 }

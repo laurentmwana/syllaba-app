@@ -8,14 +8,13 @@
 <?php $attributes = $attributes->except(\App\View\Components\AdminLayout::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['backRoute' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('#post.index'))]); ?>
-     <?php $__env->slot('header', null, []); ?> Création d'un article <?php $__env->endSlot(); ?>
+     <?php $__env->slot('header', null, []); ?> Editer l"article #<?php echo e($post->id); ?> <?php $__env->endSlot(); ?>
 
     <div class="container py-12">
         <div class="container-center">
-
             <div class="container-card max-w-xl">
                 <p class="text-description mb-3">
-                    Remplissez ces champs pour publier un article
+                    Remplissez ces champs pour editer un article
                 </p>
                 <?php echo $__env->make('admin.post._form', [
                     'post' => $post,
@@ -34,4 +33,4 @@
 <?php $component = $__componentOriginal91fdd17964e43374ae18c674f95cdaa3; ?>
 <?php unset($__componentOriginal91fdd17964e43374ae18c674f95cdaa3); ?>
 <?php endif; ?>
-<?php /**PATH F:\laravel-app\syllaba-app\resources\views/admin/post/create.blade.php ENDPATH**/ ?>
+<?php /**PATH F:\laravel-app\syllaba-app\resources\views/admin/post/edit.blade.php ENDPATH**/ ?>

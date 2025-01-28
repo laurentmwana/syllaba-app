@@ -76,10 +76,10 @@
                     @endauth
                     @guest
                         <div class="flex items-center justify-end gap-3">
-                            <x-secondary-button>
+                            <x-secondary-button :href="route('login')" :isLink="true">
                                 Se connecter
                             </x-secondary-button>
-                            <x-primary-button>
+                            <x-primary-button :href="route('register')" :isLink="true">
                                 Créer un compte
                             </x-primary-button>
                         </div>

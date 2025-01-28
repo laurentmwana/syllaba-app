@@ -1,3 +1,5 @@
-@props(['id' => null, 'value' => [], 'mapping' => ""])
+@props(['disabled' => false, 'value' => '', 'options' => [], 'placeholder' => 'Selectionnez une option'])
 
-<div id="select-single" data-id="{{ $id }}" data-value="{{ $value }}" data-mapping="{{ $mapping }}"></div>
+<select @disabled($disabled) {{ $attributes->merge(['class' => 'border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm']) }}>
+
+</select>

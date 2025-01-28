@@ -3,24 +3,26 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
+use App\Models\Category;
+use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Services\File\FileUploader;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Collection;
 
 class AdminPostController extends Controller
 {
     public function __construct(private FileUploader $fileUploader)
     {
-
     }
 
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
-        $posts = Post::with(['categories'])->paginate();
+        $posts = Post::findPaginated();
 
         return view('admin.post.index', [
             'posts' => $posts,
@@ -34,6 +36,7 @@ class AdminPostController extends Controller
     {
         return view('admin.post.create', [
             'post' => new Post(),
+            'categories' => $this->getCollectionCategories(),
         ]);
     }
 
@@ -65,7 +68,7 @@ class AdminPostController extends Controller
     {
         $post = Post::with(['categories'])->findOrFail($id);
 
-        return view('admin.post.create', [
+        return view('admin.post.show', [
             'post' => $post,
         ]);
     }
@@ -77,8 +80,9 @@ class AdminPostController extends Controller
     {
         $post = Post::with(['categories'])->findOrFail($id);
 
-        return view('admin.post.create', [
+        return view('admin.post.edit', [
             'post' => $post,
+            'categories' => $this->getCollectionCategories(),
         ]);
     }
 
@@ -108,9 +112,17 @@ class AdminPostController extends Controller
     {
         $post = Post::findOrFail($id);
 
+        $this->fileUploader->delete($post->image);
+
         $post->delete();
 
         return redirect()->route('#post.index')
             ->with('message', "article supprimé.");
+    }
+
+    private function getCollectionCategories(): Collection
+    {
+        return Category::orderByDesc('updated_at')
+            ->get(['id', 'name']);
     }
 }

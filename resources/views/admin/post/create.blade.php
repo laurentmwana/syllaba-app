@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout :backRoute="route('#post.index')">
     <x-slot name="header">Création d'un article</x-slot>
 
     <div class="container py-12">
@@ -9,7 +9,8 @@
                     Remplissez ces champs pour publier un article
                 </p>
                 @include('admin.post._form', [
-                    'post' => $post
+                    'post' => $post,
+                    'categories' => $categories
                 ])
             </div>
         </div>

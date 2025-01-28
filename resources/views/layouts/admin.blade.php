@@ -1,3 +1,5 @@
+@props(['backRoute' => null])
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -16,18 +18,34 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen">
-            
+
             @include('shared.navigation-admin')
 
             <!-- Page Heading -->
             @if (isset($header))
                 <div class="container mt-11">
                     <div class="container-center">
+
                         @include('shared.section-title', [
                             'title' => $header
                         ])
+
+                        @include('shared.back-route', [
+                            'backRoute' => isset($backRoute) ? $backRoute : null
+                        ])
                     </div>
                 </div>
+
+                <div class="container">
+                    <div class="container-center">
+                        @if (session('message'))
+                            @include('shared.alert', [
+                                'message' => session('message')
+                            ])
+                        @endif
+                    </div>
+                </div>
+
             @endif
 
             <!-- Page Content -->

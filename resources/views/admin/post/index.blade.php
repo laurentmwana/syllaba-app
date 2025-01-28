@@ -6,7 +6,9 @@
 
             <div class="mb-4">
                 @include('shared.search-with-action', [
-                    'routeAction' => route('#post.create')
+                    'routeAction' => route('#post.create'),
+                    'countResult' => 12,
+                    'routeIndex' => route('#post.index')
                 ])
 
                 <div class="my-5">

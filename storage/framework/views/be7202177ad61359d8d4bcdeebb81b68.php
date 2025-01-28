@@ -15,7 +15,9 @@
 
             <div class="mb-4">
                 <?php echo $__env->make('shared.search-with-action', [
-                    'routeAction' => route('#post.create')
+                    'routeAction' => route('#post.create'),
+                    'countResult' => 12,
+                    'routeIndex' => route('#post.index')
                 ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
                 <div class="my-5">

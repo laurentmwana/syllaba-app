@@ -23,7 +23,7 @@ export default {
         },
         extend: {
             fontFamily: {
-                sans: ["Inter", "Figtree", ...defaultTheme.fontFamily.sans],
+                sans: ["Inter", ...defaultTheme.fontFamily.sans],
             },
             borderRadius: {
                 lg: "var(--radius)",

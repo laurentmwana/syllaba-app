@@ -68,7 +68,7 @@ unset($__defined_vars); ?>
         <?php echo e($title ?? $slot); ?>
 
     </h2>
-    
+
     <?php if($subtitle): ?>
         <p class="mt-2 text-muted-foreground text-center mx-auto max-w-2xl">
             <?php echo e($subtitle); ?>

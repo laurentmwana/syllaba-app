@@ -32,14 +32,14 @@ class PostRequest extends FormRequest
                 'mimes:png,jpg',
                 'max:1024'
             ],
-            'title' => ['required', 'between:3,20', (new Unique(Post::class))->ignore($id)],
+            'title' => ['required', 'between:3,255', (new Unique(Post::class))->ignore($id)],
             'content' => [
                 'required',
-                'min:100'
+                'min:30'
             ],
             'categories' => [
                 'required',
-                'between:1,3',
+                'between:1,2',
                 'exists:categories,id',
                 'array'
             ]

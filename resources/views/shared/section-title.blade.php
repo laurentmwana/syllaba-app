@@ -32,7 +32,7 @@
     <h2 class="font-bold tracking-tight text-gray-800 dark:text-gray-200 {{ $sizeClasses }}">
         {{ $title ?? $slot }}
     </h2>
-    
+
     @if($subtitle)
         <p class="mt-2 text-muted-foreground text-center mx-auto max-w-2xl">
             {{ $subtitle }}
