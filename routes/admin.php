@@ -18,7 +18,7 @@ Route::prefix('admin')->name('#')->middleware(['auth', 'verified'])
     Route::get('comment', [AdminCommentController::class, 'index'])
         ->name('comment.index');
 
-    Route::get('comment/{comment}', [AdminCommentController::class, 'show'])
+    Route::get('comment/{id}', [AdminCommentController::class, 'show'])
         ->name('comment.show');
 
     Route::post('comment/{comment}', [AdminCommentController::class, 'lock'])

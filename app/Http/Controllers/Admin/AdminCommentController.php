@@ -15,7 +15,7 @@ class AdminCommentController extends Controller
      */
     public function index(): View
     {
-        $comments = Comment::with(['post', 'user'])->paginate();
+        $comments = Comment::findPaginated();
 
         return view('admin.comment.index', [
             'comments' => $comments,
@@ -25,8 +25,8 @@ class AdminCommentController extends Controller
     public function lock(Comment $comment): RedirectResponse
     {
         $status = $comment->status === CommentStateEnum::OPEN->value
-            ? CommentStateEnum::LOCK->Value
-            : CommentStateEnum::OPEN->Value;
+            ? CommentStateEnum::LOCK->value
+            : CommentStateEnum::OPEN->value;
 
         $comment->update(['status' => $status]);
 
@@ -41,7 +41,7 @@ class AdminCommentController extends Controller
     {
         $comment = Comment::with(['post', 'user'])->findOrFail($id);
 
-        return view('admin.comment.create', [
+        return view('admin.comment.show', [
             'comment' => $comment,
         ]);
     }

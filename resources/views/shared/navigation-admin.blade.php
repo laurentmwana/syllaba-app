@@ -21,6 +21,15 @@
                         <x-nav-link :href="route('#post.index')" :active="request()->routeIs('#post.index')">
                             Article
                         </x-nav-link>
+
+
+                        <x-nav-link :href="route('#category.index')" :active="request()->routeIs('#category.index')">
+                            Categorie
+                        </x-nav-link>
+
+                        <x-nav-link :href="route('#comment.index')" :active="request()->routeIs('#comment.index')">
+                            Commentaire
+                        </x-nav-link>
                     </div>
                 </div>
 

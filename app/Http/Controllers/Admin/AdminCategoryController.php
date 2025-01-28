@@ -14,7 +14,7 @@ class AdminCategoryController extends Controller
      */
     public function index(): View
     {
-        $categories = Category::with(['posts'])->paginate();
+        $categories = Category::findPaginated();
 
         return view('admin.category.index', [
             'categories' => $categories,
@@ -50,7 +50,7 @@ class AdminCategoryController extends Controller
     {
         $category = Category::with(['posts'])->findOrFail($id);
 
-        return view('admin.category.create', [
+        return view('admin.category.show', [
             'category' => $category,
         ]);
     }
@@ -62,7 +62,7 @@ class AdminCategoryController extends Controller
     {
         $category = Category::with(['posts'])->findOrFail($id);
 
-        return view('admin.category.create', [
+        return view('admin.category.edit', [
             'category' => $category,
         ]);
     }
