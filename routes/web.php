@@ -25,6 +25,18 @@ Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.
 
 Route::post('/post', PostController::class)->name('post.index');
 
+Route::middleware(['auth', 'verified', 'with-role:admin', 'number-phone:fail'])
+    ->group(function () {
+        Route::get('/completed-number-phone', [NumberPhoneController::class, 'index'])
+            ->name('number-phone.index');
+        Route::post('/completed-number-phone/update', [NumberPhoneController::class, 'update'])
+            ->name('number-phone.update');
+    });
+
+
+
 require __DIR__.'/auth.php';
 
 require __DIR__.'/admin.php';
+
+

@@ -1,12 +1,14 @@
 <?php
 
-use App\Livewire\Admin\Post;
+use App\Enums\RoleUserEnum;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminCommentController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 
-Route::prefix('admin')->name('#')->middleware(['auth', 'verified'])
+$roleAdmin = sprintf("role:%s", RoleUserEnum::ADMIN->value);
+
+Route::prefix('admin')->name('#')->middleware(['auth', 'verified', $roleAdmin])
 ->group(function () {
     
     Route::resource('post', AdminPostController::class)
