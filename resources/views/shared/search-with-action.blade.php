@@ -1,4 +1,4 @@
-@props(['routeAction' => "", 'countResult' => 0, 'routeIndex' => ''])
+@props(['routeAction' => null, 'countResult' => 0, 'routeIndex' => ''])
 @php
     $hasSearch = request()->query->has('search') && !empty(request()->query->get('search'));
 @endphp
@@ -11,9 +11,11 @@
             </x-primary-button>
         </form>
 
-        <x-secondary-button :href="$routeAction" :isLink="true">
-            Ajouter
-        </x-secondary-button>
+        @if (null !== $routeAction)
+            <x-secondary-button :href="$routeAction" :isLink="true">
+                Ajouter
+            </x-secondary-button>
+        @endif
     </div>
 
      @if ($hasSearch)

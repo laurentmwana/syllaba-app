@@ -18,18 +18,45 @@
                             Tableau de bord
                         </x-nav-link>
 
-                        <x-nav-link :href="route('#post.index')" :active="request()->routeIs('#post.index')">
-                            Article
-                        </x-nav-link>
+                        <x-dropdown align="top" width="48" :isMenu="true">
+                            <x-slot name="trigger">
+                                Blog
+                            </x-slot>
+    
+                            <x-slot name="content">
+                                <x-dropdown-link :href="route('#category.index')" :active="request()->routeIs('#category.index')">
+                                   Categorie
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('#post.index')" :active="request()->routeIs('#post.index')">
+                                    Article
+                                 </x-dropdown-link>
+                                 <x-dropdown-link :href="route('#comment.index')" :active="request()->routeIs('#comment.index')">
+                                    Commentaire
+                                 </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown>
 
+                        <x-dropdown align="top" width="48" :isMenu="true">
+                            <x-slot name="trigger">
+                                Université
+                            </x-slot>
+    
+                            <x-slot name="content">
+                                <x-dropdown-link :href="route('#faculty.index')" :active="request()->routeIs('#faculty.index')">
+                                   Faculté
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('#department.index')" :active="request()->routeIs('#department.index')">
+                                    Département
+                                 </x-dropdown-link>
+                                 <x-dropdown-link :href="route('#option.index')" :active="request()->routeIs('#option.index')">
+                                    Option
+                                 </x-dropdown-link>
 
-                        <x-nav-link :href="route('#category.index')" :active="request()->routeIs('#category.index')">
-                            Categorie
-                        </x-nav-link>
-
-                        <x-nav-link :href="route('#comment.index')" :active="request()->routeIs('#comment.index')">
-                            Commentaire
-                        </x-nav-link>
+                                 <x-dropdown-link :href="route('#year-academic.index')" :active="request()->routeIs('#year-academic.index')">
+                                    Année Académique
+                                 </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown>
                     </div>
                 </div>
 

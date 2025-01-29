@@ -11,7 +11,7 @@ class NumberPhoneController extends Controller
 {
     public function index(): View
     {
-        return view('number/add-number');
+        return view('add-number.index');
     }
 
     public function update(Request $request): RedirectResponse

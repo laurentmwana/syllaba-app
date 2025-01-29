@@ -1,7 +1,7 @@
 <?php $attributes ??= new \Illuminate\View\ComponentAttributeBag;
 
 $__newAttributes = [];
-$__propNames = \Illuminate\View\ComponentAttributeBag::extractPropNames((['routeAction' => "", 'countResult' => 0, 'routeIndex' => '']));
+$__propNames = \Illuminate\View\ComponentAttributeBag::extractPropNames((['routeAction' => null, 'countResult' => 0, 'routeIndex' => '']));
 
 foreach ($attributes->all() as $__key => $__value) {
     if (in_array($__key, $__propNames)) {
@@ -16,7 +16,7 @@ $attributes = new \Illuminate\View\ComponentAttributeBag($__newAttributes);
 unset($__propNames);
 unset($__newAttributes);
 
-foreach (array_filter((['routeAction' => "", 'countResult' => 0, 'routeIndex' => '']), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
+foreach (array_filter((['routeAction' => null, 'countResult' => 0, 'routeIndex' => '']), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 }
 
@@ -76,7 +76,8 @@ unset($__defined_vars); ?>
 <?php endif; ?>
         </form>
 
-        <?php if (isset($component)) { $__componentOriginal3b0e04e43cf890250cc4d85cff4d94af = $component; } ?>
+        <?php if(null !== $routeAction): ?>
+            <?php if (isset($component)) { $__componentOriginal3b0e04e43cf890250cc4d85cff4d94af = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal3b0e04e43cf890250cc4d85cff4d94af = $attributes; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.secondary-button','data' => ['href' => $routeAction,'isLink' => true]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('secondary-button'); ?>
@@ -86,8 +87,8 @@ unset($__defined_vars); ?>
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($routeAction),'isLink' => true]); ?>
-            Ajouter
-         <?php echo $__env->renderComponent(); ?>
+                Ajouter
+             <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal3b0e04e43cf890250cc4d85cff4d94af)): ?>
 <?php $attributes = $__attributesOriginal3b0e04e43cf890250cc4d85cff4d94af; ?>
@@ -97,6 +98,7 @@ unset($__defined_vars); ?>
 <?php $component = $__componentOriginal3b0e04e43cf890250cc4d85cff4d94af; ?>
 <?php unset($__componentOriginal3b0e04e43cf890250cc4d85cff4d94af); ?>
 <?php endif; ?>
+        <?php endif; ?>
     </div>
 
      <?php if($hasSearch): ?>

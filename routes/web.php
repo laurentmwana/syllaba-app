@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NumberPhoneController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,8 +33,6 @@ Route::middleware(['auth', 'verified', 'with-role:admin', 'number-phone:fail'])
         Route::post('/completed-number-phone/update', [NumberPhoneController::class, 'update'])
             ->name('number-phone.update');
     });
-
-
 
 require __DIR__.'/auth.php';
 
