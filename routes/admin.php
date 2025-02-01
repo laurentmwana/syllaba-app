@@ -2,19 +2,28 @@
 
 use App\Enums\RoleUserEnum;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AdminPostController;
-use App\Http\Controllers\Admin\AdminOptionController;
-use App\Http\Controllers\Admin\AdminCommentController;
-use App\Http\Controllers\Admin\AdminFacultyController;
-use App\Http\Controllers\Admin\AdminCategoryController;
-use App\Http\Controllers\Admin\AdminDepartmentController;
-use App\Http\Controllers\Admin\AdminYearAcademicController;
+use App\Http\Controllers\Admin\{
+    AdminPostController,
+    AdminUserController,
+    AdminLevelController,
+    AdminOptionController,
+    AdminCommentController,
+    AdminContactController,
+    AdminFacultyController,
+    AdminPaymentController,
+    AdminStudentController,
+    AdminCategoryController,
+    AdminDocumentController,
+    AdminDepartmentController,
+    AdminYearAcademicController,
+    AdminEventController
+};
 
 $roleAdmin = sprintf("role:%s", RoleUserEnum::ADMIN->value);
 
 Route::prefix('admin')->name('#')->middleware(['auth', 'verified', $roleAdmin])
 ->group(function () {
-    
+
     // BLOG
 
     Route::resource('post', AdminPostController::class)
@@ -43,7 +52,7 @@ Route::prefix('admin')->name('#')->middleware(['auth', 'verified', $roleAdmin])
 
     Route::resource('department', AdminDepartmentController::class)
         ->parameter('department', 'id');
-    
+
     Route::resource('option', AdminOptionController::class)
         ->parameter('option', 'id');
 
@@ -61,4 +70,32 @@ Route::prefix('admin')->name('#')->middleware(['auth', 'verified', $roleAdmin])
 
     Route::delete('year-academic/{id}', [AdminYearAcademicController::class, 'destroy'])
         ->name('year-academic.destroy');
+
+    Route::resource('student', AdminStudentController::class)
+        ->parameter('student', 'id');
+
+    Route::resource('level', AdminLevelController::class)
+        ->parameter('level', 'id');
+
+    Route::resource('payment', AdminPaymentController::class)
+        ->parameter('payment', 'id');
+
+    Route::resource('document', AdminDocumentController::class)
+        ->parameter('document', 'id');
+
+    Route::resource('user', AdminUserController::class)
+        ->parameter('user', 'id');
+
+    Route::resource('event', AdminEventController::class)
+        ->parameter('event', 'id');
+
+    Route::get('contact', [AdminContactController::class, 'index'])
+        ->name('contact.index');
+
+    Route::get('contact/{id}', [AdminContactController::class, 'show'])
+        ->name('contact.show');
+
+    Route::delete('contact/{contact}', [AdminContactController::class, 'destroy'])
+        ->name('contact.destroy');
+
 });

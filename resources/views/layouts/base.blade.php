@@ -13,6 +13,8 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <link rel="shortcut icon" href="/images/logo.svg" type="image/x-icon">
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-scree">

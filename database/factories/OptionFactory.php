@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Department;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,9 @@ class OptionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->text(80),
+            'alias' => $this->faker->text(20),
+            'department_id' => Department::all()->random()->id
         ];
     }
 }

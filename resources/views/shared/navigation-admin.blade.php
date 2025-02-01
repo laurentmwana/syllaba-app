@@ -57,6 +57,53 @@
                                  </x-dropdown-link>
                             </x-slot>
                         </x-dropdown>
+
+                        <x-dropdown align="top" width="48" :isMenu="true">
+                            <x-slot name="trigger">
+                                Cursus
+                            </x-slot>
+    
+                            <x-slot name="content">
+                              
+                                <x-dropdown-link :href="route('#level.index')" :active="request()->routeIs('#level.index')">
+                                    Promotions
+                                 </x-dropdown-link>
+
+                                 <x-dropdown-link :href="route('#student.index')" :active="request()->routeIs('#student.index')">
+                                    Etudiants
+                                  </x-dropdown-link>
+
+                                 <x-dropdown-link :href="route('#document.index')" :active="request()->routeIs('#document.index')">
+                                    Syllabus
+                                 </x-dropdown-link>
+
+
+                                 <x-dropdown-link :href="route('#payment.index')" :active="request()->routeIs('#payment.index')">
+                                    Paiement
+                                 </x-dropdown-link>
+
+                            </x-slot>
+                        </x-dropdown>
+
+                        <x-dropdown align="top" width="48" :isMenu="true">
+                            <x-slot name="trigger">
+                                Autres
+                            </x-slot>
+    
+                            <x-slot name="content">
+                                <x-dropdown-link :href="route('#user.index')" :active="request()->routeIs('#user.index')">
+                                  Utilisateur
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('#contact.index')" :active="request()->routeIs('#contact.index')">
+                                    Contact
+                                 </x-dropdown-link>
+
+                                 <x-dropdown-link :href="route('#event.index')" :active="request()->routeIs('#event.index')">
+                                    Evenement
+                                 </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown>
+
                     </div>
                 </div>
 

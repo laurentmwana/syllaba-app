@@ -2,10 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Enum\RoleUserEnum;
 use Closure;
 use App\Models\User;
-use App\Utilities\Auth\HasRoleUser;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 

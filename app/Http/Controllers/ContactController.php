@@ -13,7 +13,7 @@ class ContactController extends Controller
         return view('contact.index', []);
     }
 
-    
+
     public function send(): RedirectResponse
     {
         return redirect()->route('#contact.index')

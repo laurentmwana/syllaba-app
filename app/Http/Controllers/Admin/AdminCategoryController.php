@@ -89,6 +89,7 @@ class AdminCategoryController extends Controller
 
         $category->delete();
 
+
         return redirect()->route('#category.index')
             ->with('message', "categorie supprimée.");
     }

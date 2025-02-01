@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OptionRequest;
 
+
 class AdminOptionController extends Controller
 {
     /**
@@ -97,7 +98,7 @@ class AdminOptionController extends Controller
             ->with('message', "option supprimée.");
     }
 
-    
+
     private function getCollectionDepartments(): Collection
     {
         return Department::orderByDesc('updated_at')

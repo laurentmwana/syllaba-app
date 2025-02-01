@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Enums\RoleUserEnum;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,6 +22,7 @@ class PostFactory extends Factory
             'title' => $this->faker->unique()->text(200),
             'content' => $this->faker->text(200),
             'image' => $this->faker->imageUrl(),
+            'user_id' => User::where('role', '=', RoleUserEnum::ADMIN->value)->first()->id
         ];
     }
 }
