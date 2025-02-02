@@ -2,9 +2,11 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Category;
+use App\Models\User;
 use Illuminate\Validation\Rules\Unique;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules;
+
 
 class UserRequest extends FormRequest
 {
@@ -28,11 +30,24 @@ class UserRequest extends FormRequest
         return [
             'name' => [
                 'required',
+                'between:2,255'
             ],
 
             'email' => [
                 'required',
-            ]
+                'email',
+                'lowercase',
+                'max:255',
+                (new Unique(User::class))->ignore($id)
+            ],
+
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+
+            'student_id' => [
+                'required',
+                'exists:students,id',
+                (new Unique(User::class))->ignore($id)
+            ],
         ];
     }
 }

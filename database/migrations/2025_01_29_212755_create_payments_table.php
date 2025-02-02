@@ -29,10 +29,10 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
-            $table->enum('gender', array_map(
+            $table->enum('status', array_map(
                 fn (PaymentEnum $enum) => $enum->value, PaymentEnum::cases()))
             ->default(PaymentEnum::NO_SUCCESS->value);
-            
+
             $table->dateTime('payment_at')->nullable();
             $table->timestamps();
         });

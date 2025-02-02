@@ -1,10 +1,8 @@
 <div class="container-center">
     <div class="mt-16">
 
-        <x-section-title
-            size="sm">
-            Dernièrs articles
-        </x-section-title>
+        @include('shared.section-title', [
+        'title' => 'Dernièrs articles', 'align' => 'center'])
 
         @if ($posts->count() > 0)
 

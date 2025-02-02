@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'role' => RoleUserEnum::ADMIN->value,
         ]);
 
-        User::factory(200)->create();
+        User::factory(100)->create();
 
     }
 }

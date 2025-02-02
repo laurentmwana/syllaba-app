@@ -15,7 +15,7 @@ class WelcomeController extends Controller
     public function __invoke(Request $request): View
     {
 
-        return view('welcome.welcome', [
+        return view('welcome.index', [
             'posts' => $this->getLastPosts(),
         ]);
     }

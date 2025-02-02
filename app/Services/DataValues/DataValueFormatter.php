@@ -7,6 +7,7 @@ namespace App\Services\DataValues;
 use App\Enums\EventTypeEnum;
 use App\Models\Level;
 use App\Enums\GenderEnum;
+use App\Models\Student;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -56,6 +57,31 @@ final class DataValueFormatter
             );
         }
 
+
+        return $collection;
+    }
+
+
+    public static function getStudents(): Collection
+    {
+        $students = Student::all(['id', 'name', 'firstname', 'gender']);
+
+        $collection = new Collection();
+
+        foreach ($students as $student) {
+            $collection->add(
+                (new DataOptionSelect())
+                    ->setId($student->id)
+                    ->setName(
+                        sprintf(
+                            "%s - %s [%s]",
+                            $student->name,
+                            $student->firstname,
+                            $student->gender
+                        )
+                    )
+            );
+        }
 
         return $collection;
     }

@@ -7,6 +7,7 @@ use App\Services\QueryParams\MergeQueryColumn;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Student extends Model
 {
@@ -14,6 +15,11 @@ class Student extends Model
     use HasFactory;
 
     protected $fillable  = ['name', 'firstname', 'lastname', 'email', 'phone', 'gender', 'token'];
+
+    public function user(): HasOne
+    {
+        return $this->hasOne(User::class);
+    }
 
     public function payments(): HasMany
     {

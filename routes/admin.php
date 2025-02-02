@@ -16,10 +16,16 @@ use App\Http\Controllers\Admin\{
     AdminDocumentController,
     AdminDepartmentController,
     AdminYearAcademicController,
-    AdminEventController
+    AdminEventController,
+    DashboardController
 };
 
 $roleAdmin = sprintf("role:%s", RoleUserEnum::ADMIN->value);
+
+
+
+Route::get('/dashboard', DashboardController::class)
+    ->middleware(['auth', 'verified', $roleAdmin])->name('dashboard');
 
 Route::prefix('admin')->name('#')->middleware(['auth', 'verified', $roleAdmin])
 ->group(function () {

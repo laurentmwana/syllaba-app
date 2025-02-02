@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Http\Requests\UserRequest;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use App\Services\DataValues\DataValueFormatter;
 
 class AdminUserController extends Controller
 {
@@ -14,10 +15,10 @@ class AdminUserController extends Controller
      */
     public function index(): View
     {
-        $user = User::findPaginated();
+        $users = User::findPaginated();
 
         return view('admin.user.index', [
-            'user' => $user,
+            'users' => $users,
         ]);
     }
 
@@ -28,6 +29,7 @@ class AdminUserController extends Controller
     {
         return view('admin.user.create', [
             'user' => new User(),
+            'students' => DataValueFormatter::getStudents()
         ]);
     }
 
@@ -64,6 +66,7 @@ class AdminUserController extends Controller
 
         return view('admin.user.edit', [
             'user' => $user,
+            'students' => DataValueFormatter::getStudents()
         ]);
     }
 
