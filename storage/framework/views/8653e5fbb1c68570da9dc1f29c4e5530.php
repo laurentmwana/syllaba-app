@@ -310,5 +310,4 @@
 <?php if (isset($__componentOriginal69dc84650370d1d4dc1b42d016d7226b)): ?>
 <?php $component = $__componentOriginal69dc84650370d1d4dc1b42d016d7226b; ?>
 <?php unset($__componentOriginal69dc84650370d1d4dc1b42d016d7226b); ?>
-<?php endif; ?>
-<?php /**PATH F:\laravel-app\syllaba-app\resources\views/auth/register.blade.php ENDPATH**/ ?>
+<?php endif; ?><?php /**PATH F:\laravel-app\syllaba-app\resources\views/auth/register.blade.php ENDPATH**/ ?>

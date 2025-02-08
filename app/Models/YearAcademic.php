@@ -4,10 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class YearAcademic extends Model
 {
     protected $fillable = ['status', 'start', 'end'];
+
+
+    public function documents(): BelongsToMany
+    {
+        return $this->belongsToMany(Document::class);
+    }
 
     public static function findPaginated(): LengthAwarePaginator
     {

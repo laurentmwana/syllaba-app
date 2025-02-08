@@ -9,8 +9,9 @@
                     Remplissez ces champs pour créer un document (syllabus)
                 </p>
                 @include('admin.document._form', [
-                    'document' => $document,
-                    'levels' => $levels
+                'document' => $document,
+                'levels' => $levels,
+                'yearAcademics' => $yearAcademics,
                 ])
             </div>
         </div>

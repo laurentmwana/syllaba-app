@@ -28,6 +28,12 @@
         <x-input-error :messages="$errors->get('price')" class="mt-2" />
     </div>
 
+    <div>
+        <x-input-label for="year_academics">Année académique</x-input-label>
+        <x-select.multiple class="block w-full" :options="$year_academics" :values="old('year_academics', $document->year_academics)" id="year_academics" name="year_academics" />
+        <x-input-error :messages="$errors->get('year_academics')" class="mt-2" />
+    </div>
+
 
     <div>
         <x-input-label for="levels">Promotions</x-input-label>

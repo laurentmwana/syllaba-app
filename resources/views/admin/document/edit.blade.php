@@ -8,8 +8,9 @@
                     Remplissez ces champs pour editer un document
                 </p>
                 @include('admin.document._form', [
-                    'document' => $document,
-                    'levels' => $levels
+                'document' => $document,
+                'levels' => $levels,
+                'yearAcademics' => $yearAcademics,
                 ])
             </div>
         </div>

@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -55,6 +56,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function student(): BelongsTo
     {
         return $this->belongsTo(Student::class);
+    }
+
+    public function newLetter(): HasOne
+    {
+        return $this->hasOne(NewLetter::class);
     }
 
 

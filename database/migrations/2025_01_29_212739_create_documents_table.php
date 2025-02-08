@@ -20,6 +20,20 @@ return new class extends Migration
             $table->timestamps();
         });
 
+
+        Schema::create('document_year_academic', function (Blueprint $table) {
+            $table->foreignId('year_academic_id')
+                ->constrained()
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
+            $table->foreignId('document_id')
+                ->constrained()
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+            $table->primary(['year_academic_id', 'document_id']);
+        });
+
         Schema::create('document_level', function (Blueprint $table) {
             $table->foreignId('level_id')
                 ->constrained()

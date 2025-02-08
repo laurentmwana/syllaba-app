@@ -22,17 +22,17 @@
                             <x-slot name="trigger">
                                 Blog
                             </x-slot>
-    
+
                             <x-slot name="content">
                                 <x-dropdown-link :href="route('#category.index')" :active="request()->routeIs('#category.index')">
-                                   Categorie
+                                    Categorie
                                 </x-dropdown-link>
                                 <x-dropdown-link :href="route('#post.index')" :active="request()->routeIs('#post.index')">
                                     Article
-                                 </x-dropdown-link>
-                                 <x-dropdown-link :href="route('#comment.index')" :active="request()->routeIs('#comment.index')">
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('#comment.index')" :active="request()->routeIs('#comment.index')">
                                     Commentaire
-                                 </x-dropdown-link>
+                                </x-dropdown-link>
                             </x-slot>
                         </x-dropdown>
 
@@ -40,21 +40,21 @@
                             <x-slot name="trigger">
                                 Université
                             </x-slot>
-    
+
                             <x-slot name="content">
                                 <x-dropdown-link :href="route('#faculty.index')" :active="request()->routeIs('#faculty.index')">
-                                   Faculté
+                                    Faculté
                                 </x-dropdown-link>
                                 <x-dropdown-link :href="route('#department.index')" :active="request()->routeIs('#department.index')">
                                     Département
-                                 </x-dropdown-link>
-                                 <x-dropdown-link :href="route('#option.index')" :active="request()->routeIs('#option.index')">
+                                </x-dropdown-link>
+                                <x-dropdown-link :href="route('#option.index')" :active="request()->routeIs('#option.index')">
                                     Option
-                                 </x-dropdown-link>
+                                </x-dropdown-link>
 
-                                 <x-dropdown-link :href="route('#year-academic.index')" :active="request()->routeIs('#year-academic.index')">
+                                <x-dropdown-link :href="route('#year-academic.index')" :active="request()->routeIs('#year-academic.index')">
                                     Année Académique
-                                 </x-dropdown-link>
+                                </x-dropdown-link>
                             </x-slot>
                         </x-dropdown>
 
@@ -62,25 +62,25 @@
                             <x-slot name="trigger">
                                 Cursus
                             </x-slot>
-    
+
                             <x-slot name="content">
-                              
+
                                 <x-dropdown-link :href="route('#level.index')" :active="request()->routeIs('#level.index')">
                                     Promotions
-                                 </x-dropdown-link>
+                                </x-dropdown-link>
 
-                                 <x-dropdown-link :href="route('#student.index')" :active="request()->routeIs('#student.index')">
+                                <x-dropdown-link :href="route('#student.index')" :active="request()->routeIs('#student.index')">
                                     Etudiants
-                                  </x-dropdown-link>
+                                </x-dropdown-link>
 
-                                 <x-dropdown-link :href="route('#document.index')" :active="request()->routeIs('#document.index')">
+                                <x-dropdown-link :href="route('#document.index')" :active="request()->routeIs('#document.index')">
                                     Syllabus
-                                 </x-dropdown-link>
+                                </x-dropdown-link>
 
 
-                                 <x-dropdown-link :href="route('#payment.index')" :active="request()->routeIs('#payment.index')">
+                                <x-dropdown-link :href="route('#payment.index')" :active="request()->routeIs('#payment.index')">
                                     Paiement
-                                 </x-dropdown-link>
+                                </x-dropdown-link>
 
                             </x-slot>
                         </x-dropdown>
@@ -89,18 +89,23 @@
                             <x-slot name="trigger">
                                 Autres
                             </x-slot>
-    
+
                             <x-slot name="content">
                                 <x-dropdown-link :href="route('#user.index')" :active="request()->routeIs('#user.index')">
-                                  Utilisateur
+                                    Utilisateur
                                 </x-dropdown-link>
                                 <x-dropdown-link :href="route('#contact.index')" :active="request()->routeIs('#contact.index')">
                                     Contact
-                                 </x-dropdown-link>
+                                </x-dropdown-link>
 
-                                 <x-dropdown-link :href="route('#event.index')" :active="request()->routeIs('#event.index')">
+                                <x-dropdown-link :href="route('#event.index')" :active="request()->routeIs('#event.index')">
                                     Evenement
-                                 </x-dropdown-link>
+                                </x-dropdown-link>
+
+
+                                <x-dropdown-link :href="route('#new-letter.index')" :active="request()->routeIs('#new-letter.index')">
+                                    NewLetter
+                                </x-dropdown-link>
                             </x-slot>
                         </x-dropdown>
 
@@ -131,7 +136,7 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <x-dropdown-link :href="route('logout')"
-                                        onclick="event.preventDefault();
+                                    onclick="event.preventDefault();
                                                     this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
@@ -177,7 +182,7 @@
                         @csrf
 
                         <x-responsive-nav-link :href="route('logout')"
-                                onclick="event.preventDefault();
+                            onclick="event.preventDefault();
                                             this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-responsive-nav-link>

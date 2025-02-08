@@ -43,6 +43,13 @@ class DocumentRequest extends FormRequest
                 'between:1,10'
             ],
 
+            'year_academics' => [
+                'required',
+                'exists:years_academics,id',
+                'array',
+                'between:1,3'
+            ],
+
             'title' => [
                 'required',
                 'string',

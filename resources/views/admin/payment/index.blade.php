@@ -1,52 +1,59 @@
 <x-admin-layout>
-    <x-slot name="header">Gestion des options</x-slot>
+    <x-slot name="header">Gestion des paiements</x-slot>
 
     <div class="container py-12">
         <div class="container-center">
 
             <div class="mb-4">
                 @include('shared.search-with-action', [
-                    'routeAction' => route('#option.create'),
-                    'countResult' => 12,
-                    'routeIndex' => route('#option.index')
+                'routeAction' => route('#payment.create'),
+                'countResult' => 12,
+                'routeIndex' => route('#payment.index')
                 ])
 
                 <div class="my-5">
                     <x-table.container>
                         <x-table.header>
                             <x-table.row>
-                                <x-table.head>Nom</x-table.head>
-                                <x-table.head>Alias</x-table.head>
-                                <x-table.head>Départment</x-table.head>
+                                <x-table.head>Etudiant</x-table.head>
+                                <x-table.head>Document</x-table.head>
+                                <x-table.head>Status</x-table.head>
                                 <x-table.head class="text-end">Actions</x-table.head>
                             </x-table.row>
                         </x-table.header>
                         <x-table.body>
-                            @foreach ($options as $option)
+                            @foreach ($payments as $payment)
                             <x-table.row>
                                 <x-table.cell>
-                                    <a href="{{ route('#option.show', ['id' => $option->id]) }}" class="hover:underline">
-                                        {{ Str::limit($option->name, 50) }}
+                                    <a href="{{ route('#student.show', ['id' => $payment->student->id]) }}" class="hover:underline">
+                                        {{ Str::limit($payment->student->name . " " . $payment->student->firstname, 50) }}
                                     </a>
                                 </x-table.cell>
 
                                 <x-table.cell>
-                                    <a href="{{ route('#option.show', ['id' => $option->id]) }}" class="hover:underline">
-                                        {{ Str::limit($option->alias, 10) }}
+                                    <a href="{{ route('#document.show', ['id' => $payment->document->id]) }}" class="hover:underline">
+                                        {{ Str::limit($payment->document->title, 50) }}
                                     </a>
                                 </x-table.cell>
 
                                 <x-table.cell>
-                                    <a href="{{ route('#department.show', ['id' => $option->department_id]) }}" class="hover:underline">
-                                        {{ Str::limit($option->department->name, 30) }}
+                                    <a href="{{ route('#payment.show', ['id' => $payment->id]) }}" class="hover:underline">
+                                        {{ Str::limit($payment->alias, 10) }}
                                     </a>
                                 </x-table.cell>
-                                
+
+                                <x-table.cell>
+                                    @include('shared.badge', [
+                                    'type' => 'outline',
+                                    'content' => $payment->status
+                                    ])
+                                </x-table.cell>
+
                                 <x-table.cell>
                                     @include('shared.action-simple', [
-                                        'routeEdit' => route('#option.edit', ['id' => $option->id]),
-                                        'routeShow' => route('#option.show', ['id' => $option->id]),
-                                        'routeDelete' => route('#option.destroy', ['id' => $option->id]),
+                                    'routeEdit' => route('#payment.edit', ['id' => $payment->id]),
+                                    'routeShow' => route('#payment.show', ['id' => $payment->id]),
+                                    'routeDelete' => route('#payment.destroy', ['id' => $payment->id]),
                                     ])
                                 </x-table.cell>
                             </x-table.row>
@@ -55,7 +62,7 @@
                     </x-table.container>
                 </div>
 
-                {{ $options->links() }}
+                {{ $payments->links() }}
             </div>
         </div>
     </div>

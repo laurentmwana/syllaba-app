@@ -12,9 +12,7 @@ use App\Services\DataValues\DataValueFormatter;
 
 class AdminDocumentController extends Controller
 {
-    public function __construct(private FileUploader $fileUploader)
-    {
-    }
+    public function __construct(private FileUploader $fileUploader) {}
 
     /**
      * Display a listing of the resource.
@@ -36,6 +34,7 @@ class AdminDocumentController extends Controller
         return view('admin.document.create', [
             'document' => new Document(),
             'levels' => DataValueFormatter::getLevels(),
+            'yearAcademics' => DataValueFormatter::getYearAcademics(),
         ]);
     }
 
@@ -46,12 +45,13 @@ class AdminDocumentController extends Controller
     {
         $newFile = $this->fileUploader->upload($request->validated('file'), '/document');
 
-        $post = Document::create([
+        $document = Document::create([
             ...$request->validated(),
             'file' => $newFile,
         ]);
 
-        $post->levels()->sync($request->validated('levels'));
+        $document->levels()->sync($request->validated('levels'));
+        $document->yearAcademics()->sync($request->validated('year_academics'));
 
         return redirect()->route('#document.index')
             ->with('message', "document créé.");
@@ -79,6 +79,7 @@ class AdminDocumentController extends Controller
         return view('admin.document.edit', [
             'document' => $document,
             'levels' => DataValueFormatter::getLevels(),
+            'yearAcademics' => DataValueFormatter::getYearAcademics(),
         ]);
     }
 
@@ -96,6 +97,7 @@ class AdminDocumentController extends Controller
         $document->update([...$request->validated(), 'file' => $updateFile]);
 
         $document->levels()->sync($request->validated('levels'));
+        $document->yearAcademics()->sync($request->validated('year_academics'));
 
         return redirect()->route('#document.index')
             ->with('message', "document edité.");

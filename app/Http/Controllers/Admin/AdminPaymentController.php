@@ -6,6 +6,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PaymentRequest;
 use App\Models\Payment;
+use App\Services\DataValues\DataValueFormatter;
 
 class AdminPaymentController extends Controller
 {
@@ -27,7 +28,9 @@ class AdminPaymentController extends Controller
     public function create(): View
     {
         return view('admin.payment.create', [
-            'faculty' => new Payment(),
+            'payment' => new Payment(),
+            'documents' => DataValueFormatter::getDocuments(),
+            'students' => DataValueFormatter::getStudents(),
         ]);
     }
 
@@ -64,6 +67,8 @@ class AdminPaymentController extends Controller
 
         return view('admin.payment.edit', [
             'payment' => $payment,
+            'documents' => DataValueFormatter::getDocuments(),
+            'students' => DataValueFormatter::getStudents(),
         ]);
     }
 

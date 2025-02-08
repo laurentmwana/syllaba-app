@@ -7,9 +7,10 @@ namespace App\Services\DataValues;
 use App\Enums\EventTypeEnum;
 use App\Models\Level;
 use App\Enums\GenderEnum;
+use App\Models\Document;
 use App\Models\Student;
+use App\Models\YearAcademic;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
 
 final class DataValueFormatter
 {
@@ -62,6 +63,32 @@ final class DataValueFormatter
     }
 
 
+    public static function getYearAcademics(): Collection
+    {
+        $years = YearAcademic::with(['option'])
+            ->orderByDesc('status')
+            ->get(['id', 'start', 'end']);
+
+        $collection = new Collection();
+
+
+        foreach ($years as $year) {
+            $collection->add(
+                (new DataOptionSelect())
+                    ->setId($year->id)
+                    ->setName(
+                        sprintf("%s - %s [%s]", $year->start, $year->end, $year->status)
+                    )
+            );
+        }
+
+
+        return $collection;
+    }
+
+
+
+
     public static function getStudents(): Collection
     {
         $students = Student::all(['id', 'name', 'firstname', 'gender']);
@@ -80,6 +107,23 @@ final class DataValueFormatter
                             $student->gender
                         )
                     )
+            );
+        }
+
+        return $collection;
+    }
+
+    public static function getDocuments(): Collection
+    {
+        $documents = Document::all(['id', 'title']);
+
+        $collection = new Collection();
+
+        foreach ($documents as $document) {
+            $collection->add(
+                (new DataOptionSelect())
+                    ->setId($document->id)
+                    ->setName($document->title)
             );
         }
 

@@ -26,4 +26,4 @@
         <?php endif; ?>
 
     </div>
-</div><?php /**PATH F:\laravel-app\syllaba-app\resources\views/welcome/post.blade.php ENDPATH**/ ?>
+</div><?php /**PATH F:\laravel-app\syllaba-app\resources\views/welcome/_post.blade.php ENDPATH**/ ?>

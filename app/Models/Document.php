@@ -18,6 +18,10 @@ class Document extends Model
     }
 
 
+    public function yearAcademics(): BelongsToMany
+    {
+        return $this->belongsToMany(YearAcademic::class);
+    }
 
     public static function findPaginated(): LengthAwarePaginator
     {
