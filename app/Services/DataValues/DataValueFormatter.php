@@ -65,9 +65,8 @@ final class DataValueFormatter
 
     public static function getYearAcademics(): Collection
     {
-        $years = YearAcademic::with(['option'])
-            ->orderByDesc('status')
-            ->get(['id', 'start', 'end']);
+        $years = YearAcademic::orderByDesc('status')
+            ->get(['id', 'start', 'end', 'status']);
 
         $collection = new Collection();
 

@@ -18,8 +18,9 @@
                     Remplissez ces champs pour créer un document (syllabus)
                 </p>
                 <?php echo $__env->make('admin.document._form', [
-                    'document' => $document,
-                    'levels' => $levels
+                'document' => $document,
+                'levels' => $levels,
+                'yearAcademics' => $yearAcademics,
                 ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div>
         </div>
@@ -33,5 +34,4 @@
 <?php if (isset($__componentOriginal91fdd17964e43374ae18c674f95cdaa3)): ?>
 <?php $component = $__componentOriginal91fdd17964e43374ae18c674f95cdaa3; ?>
 <?php unset($__componentOriginal91fdd17964e43374ae18c674f95cdaa3); ?>
-<?php endif; ?>
-<?php /**PATH F:\laravel-app\syllaba-app\resources\views/admin/document/create.blade.php ENDPATH**/ ?>
+<?php endif; ?><?php /**PATH F:\laravel-app\syllaba-app\resources\views/admin/document/create.blade.php ENDPATH**/ ?>

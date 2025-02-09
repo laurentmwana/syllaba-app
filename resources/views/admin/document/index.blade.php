@@ -39,12 +39,15 @@
                                 </x-table.cell>
 
                                 <x-table.cell>
-                                    @include('shared.badge', [
-                                    'content' => 'PDF'])
+                                    @include('shared.badge',
+                                    [
+                                    'type' => 'outline',
+                                    'content' => getExtensionName($document->file)])
                                 </x-table.cell>
 
                                 <x-table.cell>
                                     @include('shared.badge', [
+                                    'type' => 'outline',
                                     'content' => $document->levels->count()])
                                 </x-table.cell>
 

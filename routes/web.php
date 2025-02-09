@@ -17,7 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/about', fn () => view('base.about'))->name('about');
+Route::get('/about', fn() => view('base.about'))->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 
@@ -31,8 +31,8 @@ Route::middleware(['auth', 'verified', 'with-role:admin', 'number-phone:fail'])
             ->name('number-phone.update');
     });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/base.php';
 
-require __DIR__.'/admin.php';
+require __DIR__ . '/auth.php';
 
-
+require __DIR__ . '/admin.php';

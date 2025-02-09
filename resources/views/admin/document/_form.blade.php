@@ -30,7 +30,7 @@
 
     <div>
         <x-input-label for="year_academics">Année académique</x-input-label>
-        <x-select.multiple class="block w-full" :options="$year_academics" :values="old('year_academics', $document->year_academics)" id="year_academics" name="year_academics" />
+        <x-select.multiple class="block w-full" :options="$yearAcademics" :values="old('year_academics', $document->year_academics)" id="year_academics" name="year_academics" />
         <x-input-error :messages="$errors->get('year_academics')" class="mt-2" />
     </div>
 

@@ -247,8 +247,10 @@
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
-                                    <?php echo $__env->make('shared.badge', [
-                                    'content' => 'PDF'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                                    <?php echo $__env->make('shared.badge',
+                                    [
+                                    'type' => 'outline',
+                                    'content' => getExtensionName($document->file)], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                                  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginalc607f3dbbf983abb970b49dd6ee66681)): ?>
@@ -271,6 +273,7 @@
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
                                     <?php echo $__env->make('shared.badge', [
+                                    'type' => 'outline',
                                     'content' => $document->levels->count()], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                                  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

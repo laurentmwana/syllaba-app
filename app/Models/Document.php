@@ -17,7 +17,6 @@ class Document extends Model
         return $this->belongsToMany(Level::class);
     }
 
-
     public function yearAcademics(): BelongsToMany
     {
         return $this->belongsToMany(YearAcademic::class);

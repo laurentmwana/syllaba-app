@@ -26,7 +26,9 @@ class UniversitySeeder extends Seeder
         Option::factory(400)->create();
         Level::factory(100)->create();
 
-        YearAcademic::create(['start' => 2025, 'end' => '2026', 'status' => YearAcademicEnum::OPEN->value]);
+        YearAcademic::create(['start' => '2025', 'end' => '2026', 'status' => YearAcademicEnum::OPEN->value]);
+
+        YearAcademic::create(['start' => '2024', 'end' => '2025', 'status' => YearAcademicEnum::CLOSED->value]);
 
         $users = User::where('role', '!=', RoleUserEnum::ADMIN->value)->get();
 
