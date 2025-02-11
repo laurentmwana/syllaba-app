@@ -1,8 +1,8 @@
 <x-base-layout>
     @include('shared.hero')
 
-    <div class="container">
-        @include('welcome._document', ['documents' => $documents])
-        @include('welcome._post', ['posts' => $posts])
-    </div>
+    @include('welcome._document', ['courseDocuments' => $courseDocuments])
+    @include('welcome._post', ['posts' => $posts])
+    @include('welcome._new-letter')
+    @include('welcome._quiz', ['quizzes' => $quizzes])
 </x-base-layout>

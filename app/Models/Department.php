@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Services\QueryParams\MergeQueryColumn;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,7 +26,7 @@ class Department extends Model
         return $this->belongsTo(Faculty::class);
     }
 
-    
+
     public static function findPaginated(): LengthAwarePaginator
     {
         $query = request()->query->get('search');
@@ -36,13 +37,13 @@ class Department extends Model
             return $builder->paginate();
         }
 
-        return $builder->where(function ($q) use ($query) {
-            $q->whereLike('name', "%$query%")
-                ->orWhereLike('alias', "%$query%")
-                ->orWhereLike('faculty_id', "%$query%")
-                ->orWhereLike('updated_at', "%$query%")
-                ->orWhereLike('created_at', "%$query%");
-        })
-            ->paginate();
+
+        return MergeQueryColumn::generate($builder, $query, 'name', [
+            'alias',
+            'lastname',
+            'faculty_id',
+            'created_at',
+            'updated_at',
+        ])->paginate();
     }
 }

@@ -5,12 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Enums\PaymentEnum;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
-use App\Models\Document;
+use App\Models\CourseDocument;
 use App\Models\Payment;
 use App\Models\Post;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
 
 class DashboardController extends Controller
 {
@@ -18,9 +17,9 @@ class DashboardController extends Controller
     {
         $data = [
             'countPosts' => $this->getCountPosts(),
-            'countDocuments' => $this->getCountDocuments(),
+            'countCourseDocuments' => $this->getCourseDocuments(),
             'countPayments' => $this->getCountPayments(),
-            'notications' => $this->getNotifications()
+            'notifications' => $this->getNotifications()
         ];
 
         return view('admin.dashboard.index', $data);
@@ -38,9 +37,9 @@ class DashboardController extends Controller
     }
 
 
-    private function getCountDocuments(): int
+    private function getCourseDocuments(): int
     {
-        return Document::count('id');
+        return CourseDocument::count('id');
     }
 
     private function getNotifications(): Collection

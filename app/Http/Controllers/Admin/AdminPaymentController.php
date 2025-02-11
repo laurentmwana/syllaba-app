@@ -29,7 +29,7 @@ class AdminPaymentController extends Controller
     {
         return view('admin.payment.create', [
             'payment' => new Payment(),
-            'documents' => DataValueFormatter::getDocuments(),
+            'documents' => DataValueFormatter::getCourseDocuments(),
             'students' => DataValueFormatter::getStudents(),
         ]);
     }
@@ -67,7 +67,7 @@ class AdminPaymentController extends Controller
 
         return view('admin.payment.edit', [
             'payment' => $payment,
-            'documents' => DataValueFormatter::getDocuments(),
+            'documents' => DataValueFormatter::getCourseDocuments(),
             'students' => DataValueFormatter::getStudents(),
         ]);
     }

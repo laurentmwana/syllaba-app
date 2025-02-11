@@ -29,14 +29,13 @@ foreach ($attributes->all() as $__key => $__value) {
 unset($__defined_vars); ?>
 
 <?php if($isLink): ?>
-    <a <?php echo e($attributes->merge(['href' => $href, 'class' => 'inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-medium text-[10px] text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'])); ?>>
-        <?php echo e($slot); ?>
+<a <?php echo e($attributes->merge(['href' => $href, 'class' => 'inline-flex items-center px-4 py-2 bg-primary border border-transparent rounded-md font-medium text-[10px] text-white uppercase tracking-widest hover:bg-primary/90 focus:bg-primary/90 active:bg-primary/70 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'])); ?>>
+    <?php echo e($slot); ?>
 
-    </a>
+</a>
 <?php else: ?>
-    <button <?php echo e($attributes->merge(['type' => 'submit', 'class' => 'inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-medium text-[10px] text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'])); ?>>
-        <?php echo e($slot); ?>
+<button <?php echo e($attributes->merge(['type' => 'submit', 'class' => 'inline-flex items-center px-4 py-2 bg-primary border border-transparent rounded-md font-medium text-[10px] text-white uppercase tracking-widest hover:bg-primary/90 focus:bg-primary/90 active:bg-primary/70 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'])); ?>>
+    <?php echo e($slot); ?>
 
-    </button>
-<?php endif; ?>
-<?php /**PATH F:\laravel-app\syllaba-app\resources\views/components/primary-button.blade.php ENDPATH**/ ?>
+</button>
+<?php endif; ?><?php /**PATH F:\laravel-app\syllaba-app\resources\views/components/primary-button.blade.php ENDPATH**/ ?>

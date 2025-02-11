@@ -7,7 +7,11 @@ namespace App\Services\DataValues;
 use App\Enums\EventTypeEnum;
 use App\Models\Level;
 use App\Enums\GenderEnum;
+use App\Models\Course;
+use App\Models\CourseDocument;
+use App\Models\Department;
 use App\Models\Document;
+use App\Models\Professor;
 use App\Models\Student;
 use App\Models\YearAcademic;
 use Illuminate\Support\Collection;
@@ -112,17 +116,77 @@ final class DataValueFormatter
         return $collection;
     }
 
-    public static function getDocuments(): Collection
+    public static function getDepartments(): Collection
     {
-        $documents = Document::all(['id', 'title']);
+        $departments = Department::all(['id', 'alias']);
 
         $collection = new Collection();
 
-        foreach ($documents as $document) {
+        foreach ($departments as $department) {
             $collection->add(
                 (new DataOptionSelect())
-                    ->setId($document->id)
-                    ->setName($document->title)
+                    ->setId($department->id)
+                    ->setName($department->alias)
+            );
+        }
+
+        return $collection;
+    }
+
+
+    public static function getProfessors(): Collection
+    {
+        $professors = Professor::all(['id', 'name', 'firstname']);
+
+        $collection = new Collection();
+
+        foreach ($professors as $professor) {
+            $collection->add(
+                (new DataOptionSelect())
+                    ->setId($professor->id)
+                    ->setName(sprintf("%s - %s ", $professor->name, $professor->firstname))
+            );
+        }
+
+        return $collection;
+    }
+
+
+    public static function getCourseDocuments(): Collection
+    {
+        $courseDocuments = CourseDocument::with(['course', 'yearAcademic'])->get();
+
+        $collection = new Collection();
+
+        foreach ($courseDocuments as $courseDocument) {
+            $collection->add(
+                (new DataOptionSelect())
+                    ->setId($courseDocument->id)
+                    ->setName(sprintf("%s - %s : [%s]", $courseDocument->title, $courseDocument->course->name, sprintf("%s - %s", $courseDocument->yearAcademic->start, $courseDocument->yearAcademic->end)))
+            );
+        }
+
+        return $collection;
+    }
+
+
+
+    public static function getCourses(): Collection
+    {
+        $courses = Course::with(['levels'])->get();
+
+        $collection = new Collection();
+
+        foreach ($courses as $course) {
+            $parseLevels = join(', ', array_map(
+                fn(array $level) => $level['alias'],
+                $course->levels->toArray()
+            ));
+
+            $collection->add(
+                (new DataOptionSelect())
+                    ->setId($course->id)
+                    ->setName(sprintf("%s [%s]", $course->name, $parseLevels))
             );
         }
 

@@ -2,6 +2,7 @@
 
 use App\Helpers\AuthHelper;
 use App\Services\Number\NumberFormatter;
+use Illuminate\Support\Number;
 
 function isAdmin(string $role): bool
 {
@@ -29,5 +30,5 @@ function getExtensionName(string $file, string $default = "PDF"): string
 
 function formatAmount(float|int $amount): string
 {
-    return NumberFormatter::formatAmount($amount);
+    return Number::format($amount, 2, 4);
 }

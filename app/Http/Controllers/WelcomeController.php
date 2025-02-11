@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Document;
+use App\Models\CourseDocument;
 use App\Models\Post;
+use App\Models\Quiz;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class WelcomeController extends Controller
     {
         return view('welcome.index', [
             'posts' => $this->getLastPosts(),
-            'documents' => $this->getLastDocument()
+            'courseDocuments' => $this->getLastCourseDocuments(),
+            'quizzes' => $this->getLastQuizzes(),
         ]);
     }
 
@@ -29,10 +31,17 @@ class WelcomeController extends Controller
             ->get();
     }
 
-    private function getLastDocument(): Collection
+    private function getLastCourseDocuments(): Collection
     {
-        return Document::with(['levels', 'levels.option'])
+        return CourseDocument::with(['course', 'yearAcademic'])
             ->orderByDesc('updated_at')
+            ->get();
+    }
+
+    private function getLastQuizzes(): Collection
+    {
+        return Quiz::orderByDesc('updated_at')
+            ->limit(6)
             ->get();
     }
 }

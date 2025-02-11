@@ -52,19 +52,6 @@
                                     Option
                                 </x-dropdown-link>
 
-                                <x-dropdown-link :href="route('#year-academic.index')" :active="request()->routeIs('#year-academic.index')">
-                                    Année Académique
-                                </x-dropdown-link>
-                            </x-slot>
-                        </x-dropdown>
-
-                        <x-dropdown align="top" width="48" :isMenu="true">
-                            <x-slot name="trigger">
-                                Cursus
-                            </x-slot>
-
-                            <x-slot name="content">
-
                                 <x-dropdown-link :href="route('#level.index')" :active="request()->routeIs('#level.index')">
                                     Promotions
                                 </x-dropdown-link>
@@ -73,13 +60,34 @@
                                     Etudiants
                                 </x-dropdown-link>
 
-                                <x-dropdown-link :href="route('#document.index')" :active="request()->routeIs('#document.index')">
-                                    Syllabus
+                                <x-dropdown-link :href="route('#year-academic.index')" :active="request()->routeIs('#year-academic.index')">
+                                    Année Académique
+                                </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown>
+
+                        <x-dropdown align="top" width="48" :isMenu="true">
+                            <x-slot name="trigger">
+                                UE
+                            </x-slot>
+
+                            <x-slot name="content">
+
+                                <x-dropdown-link :href="route('#course.index')" :active="request()->routeIs('#course.index')">
+                                    Cours
+                                </x-dropdown-link>
+
+                                <x-dropdown-link :href="route('#professor.index')" :active="request()->routeIs('#professor.index')">
+                                    Professeur
                                 </x-dropdown-link>
 
 
-                                <x-dropdown-link :href="route('#payment.index')" :active="request()->routeIs('#payment.index')">
-                                    Paiement
+                                <x-dropdown-link :href="route('#course-document.index')" :active="request()->routeIs('#course-document.index')">
+                                    Support du cours
+                                </x-dropdown-link>
+
+                                <x-dropdown-link :href="route('#tome.index')" :active="request()->routeIs('#tome.index')">
+                                    Tome
                                 </x-dropdown-link>
 
                             </x-slot>
@@ -89,6 +97,11 @@
                             <x-slot name="trigger">
                                 Autres
                             </x-slot>
+
+
+                            <x-dropdown-link :href="route('#payment.index')" :active="request()->routeIs('#payment.index')">
+                                Paiement
+                            </x-dropdown-link>
 
                             <x-slot name="content">
                                 <x-dropdown-link :href="route('#user.index')" :active="request()->routeIs('#user.index')">
@@ -105,6 +118,10 @@
 
                                 <x-dropdown-link :href="route('#new-letter.index')" :active="request()->routeIs('#new-letter.index')">
                                     NewLetter
+                                </x-dropdown-link>
+
+                                <x-dropdown-link :href="route('#quiz.index')" :active="request()->routeIs('#quiz.index')">
+                                    Quiz
                                 </x-dropdown-link>
                             </x-slot>
                         </x-dropdown>

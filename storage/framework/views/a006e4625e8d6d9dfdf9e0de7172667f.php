@@ -2,9 +2,9 @@
 
 $__newAttributes = [];
 $__propNames = \Illuminate\View\ComponentAttributeBag::extractPropNames(([
-    'name',
-    'show' => false,
-    'maxWidth' => '2xl'
+'name',
+'show' => false,
+'maxWidth' => '2xl'
 ]));
 
 foreach ($attributes->all() as $__key => $__value) {
@@ -21,9 +21,9 @@ unset($__propNames);
 unset($__newAttributes);
 
 foreach (array_filter(([
-    'name',
-    'show' => false,
-    'maxWidth' => '2xl'
+'name',
+'show' => false,
+'maxWidth' => '2xl'
 ]), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 }
@@ -38,11 +38,11 @@ unset($__defined_vars); ?>
 
 <?php
 $maxWidth = [
-    'sm' => 'sm:max-w-sm',
-    'md' => 'sm:max-w-md',
-    'lg' => 'sm:max-w-lg',
-    'xl' => 'sm:max-w-xl',
-    '2xl' => 'sm:max-w-2xl',
+'sm' => 'sm:max-w-sm',
+'md' => 'sm:max-w-md',
+'lg' => 'sm:max-w-lg',
+'xl' => 'sm:max-w-xl',
+'2xl' => 'sm:max-w-2xl',
 ][$maxWidth];
 ?>
 
@@ -80,8 +80,7 @@ $maxWidth = [
     x-on:keydown.shift.tab.prevent="prevFocusable().focus()"
     x-show="show"
     class="fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50"
-    style="display: <?php echo e($show ? 'block' : 'none'); ?>;"
->
+    style="display: <?php echo e($show ? 'block' : 'none'); ?>;">
     <div
         x-show="show"
         class="fixed inset-0 transform transition-all"
@@ -91,8 +90,7 @@ $maxWidth = [
         x-transition:enter-end="opacity-100"
         x-transition:leave="ease-in duration-200"
         x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-    >
+        x-transition:leave-end="opacity-0">
         <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
     </div>
 
@@ -104,10 +102,8 @@ $maxWidth = [
         x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
         x-transition:leave="ease-in duration-200"
         x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-    >
+        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
         <?php echo e($slot); ?>
 
     </div>
-</div>
-<?php /**PATH F:\laravel-app\syllaba-app\resources\views/components/modal.blade.php ENDPATH**/ ?>
+</div><?php /**PATH F:\laravel-app\syllaba-app\resources\views/components/modal.blade.php ENDPATH**/ ?>

@@ -121,7 +121,6 @@
 
         <div id="preloader" class="fixed top-0 ring-0 bottom-0 left-0 z-50 flex w-full items-center  justify-center bg-gray-50 ">
             <div>
-                <h2 class="mb-2 text-gray-500 text-xl">Syllaba</h2>
                 <p class="text-description">
                     Chargement...
                 </p>

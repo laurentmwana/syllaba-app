@@ -13,11 +13,15 @@ use App\Http\Controllers\Admin\{
     AdminPaymentController,
     AdminStudentController,
     AdminCategoryController,
-    AdminDocumentController,
+    AdminCourseController,
+    AdminCourseDocumentController,
     AdminDepartmentController,
     AdminYearAcademicController,
     AdminEventController,
     AdminNewLetterController,
+    AdminProfessorController,
+    AdminQuizController,
+    AdminTomeController,
     DashboardController
 };
 
@@ -84,13 +88,21 @@ Route::prefix('admin')->name('#')->middleware(['auth', 'verified', $roleAdmin])
         Route::resource('payment', AdminPaymentController::class)
             ->parameter('payment', 'id');
 
-        Route::resource('document', AdminDocumentController::class)
-            ->parameter('document', 'id');
+        Route::resource('course-document', AdminCourseDocumentController::class)
+            ->parameter('course-document', 'id');
 
+
+        Route::resource('tome', AdminTomeController::class)
+            ->parameter('tome', 'id');
+
+        Route::resource('professor', AdminProfessorController::class)
+            ->parameter('professor', 'id');
+
+        Route::resource('course', AdminCourseController::class)
+            ->parameter('course', 'id');
 
         Route::resource('event', AdminEventController::class)
             ->parameter('event', 'id');
-
 
         // OTHER
 
@@ -115,4 +127,7 @@ Route::prefix('admin')->name('#')->middleware(['auth', 'verified', $roleAdmin])
 
         Route::post('new-letter/{id}/change-state', [AdminNewLetterController::class, 'changeState'])
             ->name('new-letter.change');
+
+        Route::resource('quiz', AdminQuizController::class)
+            ->parameter('quiz', 'id');
     });

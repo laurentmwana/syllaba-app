@@ -14,10 +14,10 @@
                 </div>
                 <div class="container-card">
                     <h2 class="text-base font-medium text-gray-900 dark:text-gray-100">
-                        {{$countDocuments > 1 ? "Documents" : "Document"}}
+                        Support de cours
                     </h2>
                     <p class="mt-1 text-sm text-description">
-                        {{$countDocuments}}
+                        {{$countCourseDocuments}}
                     </p>
                 </div>
                 <div class="container-card">

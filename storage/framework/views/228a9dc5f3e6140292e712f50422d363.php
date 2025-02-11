@@ -30,9 +30,8 @@ unset($__defined_vars); ?>
 
 <?php if(null !== $backRoute): ?>
 <div class="flex items-center gap-2 justify-start mb-3">
-    <a href="<?php echo e($backRoute); ?>" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors rounded-md p-2 text-xs border">
-        Back
+    <a href="<?php echo e($backRoute); ?>" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors rounded-md p-2 text-xs border border-indigo-400">
+        Retour
     </a>
 </div>
-<?php endif; ?>
-<?php /**PATH F:\laravel-app\syllaba-app\resources\views/shared/back-route.blade.php ENDPATH**/ ?>
+<?php endif; ?><?php /**PATH F:\laravel-app\syllaba-app\resources\views/shared/back-route.blade.php ENDPATH**/ ?>

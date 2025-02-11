@@ -5,7 +5,6 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-
 const preaload = () => {
     const preloader = document.querySelector('#preloader')
     if (preloader) {
@@ -26,9 +25,28 @@ const createDataLabelForTable = () => {
     });
 }
 
+const accordion = () => {
+
+    document.querySelectorAll('#accordion').forEach(accor => {
+        const accordionItem = accor.querySelector('#accordion-item')
+
+        if (!accordionItem) return
+
+        const buttonAction = accordionItem.querySelector('#accordion-button-action')
+
+        if (!buttonAction) return
+
+        const accordionContent = accordionItem.querySelector('#accordion-content')
+
+        if (!accordionContent) return
+
+    })
+
+}
 
 document.addEventListener("DOMContentLoaded",  () => {
     createDataLabelForTable();
+    accordion()
 });
 
 

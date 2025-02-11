@@ -2,15 +2,12 @@
 
 namespace App\Services\DataValues;
 
-
-
 class DataOptionSelect
 {
 
     public string $id;
 
     public string $name;
-
 
     public function getId()
     {

@@ -3,31 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class Payment extends Model
 {
-
-
-
-    public static function findPaginated(): LengthAwarePaginator
-    {
-        $query = request()->query->get('search');
-
-        $builder = self::with(['student', 'document'])->orderByDesc('updated_at');
-
-        if (null === $query || empty($query)) {
-            return $builder->paginate();
-        }
-
-        return $builder->where(function ($q) use ($query) {
-            $q->whereLike('student_id', "%$query%")
-                ->orWhereLike('document_id', "%$query%")
-                ->orWhereLike('year_academic_id', "%$query%")
-                ->orWhereLike('status', "%$query%")
-                ->orWhereLike('updated_at', "%$query%")
-                ->orWhereLike('created_at', "%$query%");
-        })
-            ->paginate();
-    }
+    //
 }

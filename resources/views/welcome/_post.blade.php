@@ -1,6 +1,5 @@
-<div class="container-center">
-    <div class="mt-16">
-
+<div class="container py-16">
+    <div class="container-center">
         @include('shared.section-title', [
         'title' => 'Dernièrs articles',
         'size' => "xl",
@@ -24,6 +23,5 @@
         @include('shared.alert', ['message' => "🌟 Les articles ne sont pas disponibles 🙏"])
 
         @endif
-
     </div>
 </div>

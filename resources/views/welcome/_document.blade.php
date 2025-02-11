@@ -1,5 +1,5 @@
-<div class="container-center">
-    <div class="mt-16">
+<div class="container py-16">
+    <div class="container-center">
 
         @include('shared.section-title', [
         'title' => 'Dernièrs documents',
@@ -9,11 +9,11 @@
         "subtitle" => "Voici nos derniers articles publiés recensemment"
         ])
 
-        @if ($documents->count() > 0)
+        @if ($courseDocuments->count() > 0)
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            @foreach ($documents as $document)
-            @include('document._card', ['document' => $document])
+            @foreach ($courseDocuments as $courseDocument)
+            @include('document._card', ['courseDocument' => $courseDocument])
             @endforeach
         </div>
         @else
@@ -22,6 +22,5 @@
             @include('shared.alert', ['message' => "🌟 Les documents ne sont pas disponibles 🙏"])
         </div>
         @endif
-
     </div>
 </div>
