@@ -9,7 +9,6 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 class Contact extends Model
 {
 
-
     protected $fillable = [
         'name',
         'email',

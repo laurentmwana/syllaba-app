@@ -34,6 +34,27 @@ class Post extends Model
     }
 
 
+    public static function findPaginatedFilter(?string $categoryId = null): LengthAwarePaginator
+    {
+        $query = request()->query->get('search');
+
+        $builder = self::with(['categories', 'comments', 'user'])->orderByDesc('updated_at');
+
+        if (null === $query || empty($query)) {
+            return $builder->paginate();
+        }
+
+        return $builder->where(function ($q) use ($query) {
+            $q->whereLike('title', "%$query%")
+                ->orWhereLike('image', "%$query%")
+                ->orWhereLike('content', "%$query%")
+                ->orWhereLike('updated_at', "%$query%")
+                ->orWhereLike('created_at', "%$query%");
+        })
+            ->paginate();
+    }
+
+
     public static function findPaginated(): LengthAwarePaginator
     {
         $query = request()->query->get('search');

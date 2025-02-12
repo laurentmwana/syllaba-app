@@ -14,28 +14,21 @@
             <div class="flex flex-col gap-4">
                 <?php $__currentLoopData = $quizzes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $quiz): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div id="accordion-item" class="border shadow-sm rounded-md p-3">
-                    <div class="flex items-start justify-between gap-4 mb-3">
-                        <h2 class="text-base font-medium text-gray-700 dark:text-gray-200">
-                            <?php echo e($quiz->question); ?>
+                    <h2 class="mb-3 text-base font-medium text-gray-700 dark:text-gray-200">
+                        <?php echo e($quiz->question); ?>
 
-                        </h2>
-                        <button>
-                            Open
-                        </button>
-                    </div>
-                    <div>
-                        <p class="text-description">
-                            <?php echo e($quiz->answer); ?>
+                    </h2>
+                    <p class="text-description">
+                        <?php echo e($quiz->answer); ?>
 
-                        </p>
-                    </div>
+                    </p>
                 </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
         <?php else: ?>
 
-        <?php echo $__env->make('shared.alert', ['message' => "🌟 Les articles ne sont pas disponibles 🙏"], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('shared.alert', ['message' => "🌟 Les quiz ne sont pas disponibles 🙏"], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         <?php endif; ?>
     </div>

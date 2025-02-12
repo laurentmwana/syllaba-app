@@ -1,6 +1,7 @@
 <?php
 
 use App\Helpers\AuthHelper;
+use App\Services\Directory\ResolvePathStorage;
 use App\Services\Number\NumberFormatter;
 use Illuminate\Support\Number;
 
@@ -17,9 +18,7 @@ function isStudent(string $role): bool
 
 function getGenerateUrlToStorage(string $path): string
 {
-    return str_contains("http", $path)
-        ? $path
-        : "/storage/$path";
+    return app(ResolvePathStorage::class)->getUrl($path);
 }
 
 function getExtensionName(string $file, string $default = "PDF"): string

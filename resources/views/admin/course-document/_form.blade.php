@@ -16,7 +16,7 @@
 
     <div>
         <x-input-label for="star">Appréciation</x-input-label>
-        <x-text-input class="block w-full" value="{{ $courseDocument->id ? $courseDocument->star : old('star') }}" id="star" name="star" />
+        <x-text-input type="number" class="block w-full" value="{{ $courseDocument->id ? $courseDocument->star : old('star') }}" id="star" name="star" />
         <x-input-error :messages="$errors->get('star')" class="mt-2" />
     </div>
 

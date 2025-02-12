@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CourseDocument;
+use App\Models\Event;
 use App\Models\Post;
 use App\Models\Quiz;
 use Illuminate\Contracts\View\View;
@@ -20,6 +21,7 @@ class WelcomeController extends Controller
             'posts' => $this->getLastPosts(),
             'courseDocuments' => $this->getLastCourseDocuments(),
             'quizzes' => $this->getLastQuizzes(),
+            'event' => $this->getLastEvent(),
         ]);
     }
 
@@ -43,5 +45,12 @@ class WelcomeController extends Controller
         return Quiz::orderByDesc('updated_at')
             ->limit(6)
             ->get();
+    }
+
+    private function getLastEvent(): ?Event
+    {
+        return Event::where('start_at', '>', now())
+            ->orderByDesc('updated_at')
+            ->first();
     }
 }

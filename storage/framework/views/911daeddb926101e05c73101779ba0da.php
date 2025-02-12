@@ -13,7 +13,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <?php $__currentLoopData = $courseDocuments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $courseDocument): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <?php echo $__env->make('document._card', ['courseDocument' => $courseDocument], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <?php echo $__env->make('course-document._card', ['courseDocument' => $courseDocument], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
         <?php else: ?>

@@ -1,13 +1,20 @@
+import Turbolinks from 'turbolinks';
 import './bootstrap';
 import Alpine from 'alpinejs';
+import { animate } from "motion"
 
 window.Alpine = Alpine;
 
 Alpine.start();
 
+Turbolinks.start()
+
 const preaload = () => {
     const preloader = document.querySelector('#preloader')
     if (preloader) {
+        animate('#preloader div', {
+            
+        })
         document.body.classList.add('overflow-hidden')
 
         preloader.remove()

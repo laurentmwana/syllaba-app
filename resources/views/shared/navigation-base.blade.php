@@ -2,7 +2,7 @@
     <!-- Primary Navigation Menu -->
     <div class="container">
 
-        <div class="container-center">
+        <div class="mx-auto max-w-6xl">
             <div class="flex justify-between h-16">
                 <div class="flex">
                     <!-- Logo -->
@@ -66,7 +66,7 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <x-dropdown-link :href="route('logout')"
-                                        onclick="event.preventDefault();
+                                    onclick="event.preventDefault();
                                                     this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
@@ -75,14 +75,14 @@
                     </x-dropdown>
                     @endauth
                     @guest
-                        <div class="flex items-center justify-end gap-3">
-                            <x-secondary-button :href="route('login')" :isLink="true">
-                                Se connecter
-                            </x-secondary-button>
-                            <x-primary-button :href="route('register')" :isLink="true">
-                                Créer un compte
-                            </x-primary-button>
-                        </div>
+                    <div class="flex items-center justify-end gap-3">
+                        <x-secondary-button :href="route('login')" :isLink="true">
+                            Se connecter
+                        </x-secondary-button>
+                        <x-primary-button :href="route('register')" :isLink="true">
+                            Créer un compte
+                        </x-primary-button>
+                    </div>
                     @endguest
                 </div>
 
@@ -102,16 +102,16 @@
         <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
             <div class="pt-2 pb-3 space-y-1">
                 @auth
-                    @if (isAdmin(auth()->user()->role))
-                    <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-responsive-nav-link>
-                    @endif
+                @if (isAdmin(auth()->user()->role))
+                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    {{ __('Dashboard') }}
+                </x-responsive-nav-link>
+                @endif
                 @endauth
                 <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">
                     A propos
                 </x-responsive-nav-link>
-                         <x-responsive-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')">
+                <x-responsive-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')">
                     Syllabus
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')">
@@ -126,41 +126,41 @@
             <div class="pt-4 pb-1 border-t border-gray-200">
 
                 @auth
-                    <div class="px-4">
-                        <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                        <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-                    </div>
+                <div class="px-4">
+                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                </div>
 
-                    <div class="mt-3 space-y-1">
-                        <x-responsive-nav-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-responsive-nav-link>
+                <div class="mt-3 space-y-1">
+                    <x-responsive-nav-link :href="route('profile.edit')">
+                        {{ __('Profile') }}
+                    </x-responsive-nav-link>
 
 
 
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
 
-                            <x-responsive-nav-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                        <x-responsive-nav-link :href="route('logout')"
+                            onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-responsive-nav-link>
-                        </form>
-                    </div>
+                            {{ __('Log Out') }}
+                        </x-responsive-nav-link>
+                    </form>
+                </div>
                 @endauth
 
                 @guest
-                    <div class="flex items-center justify-center pb-3">
-                        <x-secondary-button>
-                            Se connecter
-                        </x-secondary-button>
+                <div class="flex items-center justify-center pb-3">
+                    <x-secondary-button>
+                        Se connecter
+                    </x-secondary-button>
 
-                        <x-primary-button>
-                           Créer un compte
-                        </x-primary-button>
-                    </div>
+                    <x-primary-button>
+                        Créer un compte
+                    </x-primary-button>
+                </div>
                 @endguest
 
             </div>

@@ -1,3 +1,5 @@
+import 'bootstrap-icons/font/bootstrap-icons.min.css'
+
 import axios from 'axios';
 window.axios = axios;
 

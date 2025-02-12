@@ -30,6 +30,10 @@
                 <?php echo $__env->make('shared.section-title', [
                 'title' => $header
                 ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+                <?php echo $__env->make('shared.back-route', [
+                'backRoute' => isset($backRoute) ? $backRoute : null
+                ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             </div>
         </div>
         <?php endif; ?>
@@ -59,7 +63,7 @@
                                 intelligence.
                             </p>
 
-                            <NetworkSocial />
+                            <?php echo $__env->make('shared.network-social', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         </div>
                         <div class="flex md:justify-end">
                             <div>
@@ -119,11 +123,8 @@
         </div>
 
 
-        <div id="preloader" class="fixed top-0 ring-0 bottom-0 left-0 z-50 flex w-full items-center  justify-center bg-gray-50 ">
-            <div>
-                <p class="text-description">
-                    Chargement...
-                </p>
+        <div id="preloader" class="fixed top-0 ring-0 bottom-0 left-0 z-50 flex w-full items-center  justify-center bg-gray-50 gap-6">
+            <div class="w-3 h-3 bg-indigo-300 broder border-indigo-400 shadow-sm shadow-indigo-700 rounded animate-spin">
             </div>
         </div>
 

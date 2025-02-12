@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Collection;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -61,6 +62,15 @@ class User extends Authenticatable implements MustVerifyEmail
     public function newLetter(): HasOne
     {
         return $this->hasOne(NewLetter::class);
+    }
+
+    public static function findAdministrators(): Collection
+    {
+        return self::where('role', '=', RoleUserEnum::ADMIN->value)
+            ->orderByDesc('updated_at')
+            ->get();
+
+            
     }
 
 

@@ -29,18 +29,18 @@ foreach ($attributes->all() as $__key => $__value) {
 unset($__defined_vars); ?>
 
 <?php
-    $types = [
-        'default' => "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80",
-        'secondary' => 
-            "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        'destructive' => 
-            "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
-        'outline' =>  "text-foreground",
-        'success' => 
-            "bg-green-100 text-green-800 dark:text-green-400 border border-green-400",
-        'warning' => 
-            "bg-yellow-100 text-yellow-800 dark:bg-gray-700 dark:text-yellow-300 border border-yellow-300",
-    ][$type] ?? "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80";
+$types = [
+'default' => "border-transparent bg-indigo-400 text-primary-foreground shadow hover:bg-primary/80",
+'secondary' =>
+"border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+'destructive' =>
+"border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
+'outline' => "text-foreground",
+'success' =>
+"bg-green-100 text-green-800 dark:text-green-400 border border-green-400",
+'warning' =>
+"bg-yellow-100 text-yellow-800 dark:bg-gray-700 dark:text-yellow-300 border border-yellow-300",
+][$type] ?? "border-transparent bg-primary text-primary-foreground shadow hover:bg-primary/80";
 ?>
 
 
