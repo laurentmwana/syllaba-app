@@ -31,3 +31,11 @@ function formatAmount(float|int $amount): string
 {
     return Number::format($amount, 2, 4);
 }
+
+function mergeQueriesParams(array $params): array
+{
+    return [
+        ...request()->query->all(),
+        ...$params
+    ];
+}

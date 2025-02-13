@@ -16,7 +16,6 @@ class AdminCategoryController extends Controller
     {
         $categories = Category::findPaginated();
 
-
         return view('admin.category.index', [
             'categories' => $categories,
         ]);

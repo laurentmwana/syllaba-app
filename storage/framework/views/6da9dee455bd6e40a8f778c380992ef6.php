@@ -13,20 +13,21 @@
         </p>
 
         <div class="flex items-center justify-between gap-3">
-
             <div class="flex items-center gap-3">
-                <a href="<?php echo e(route('post.show', ['id' => $post->id, 'slug' => Str::slug($post->title)])); ?>#author">
+                <a href="<?php echo e(route('post.show', mergeQueriesParams(['id' => $post->id, 'slug' => Str::slug($post->title)]))); ?>#author">
 
                 </a>
 
                 <a href="<?php echo e(route('post.show', ['id' => $post->id, 'slug' => Str::slug($post->title)])); ?>#author">
-
                 </a>
             </div>
 
             <div>
                 <a class="text-description text-[11px] " href="<?php echo e(route('post.show', ['id' => $post->id, 'slug' => Str::slug($post->title)])); ?>#author">
-                    Auteur : <span class="hover:underline"><?php echo e(Str::limit($post->user->name, 30)); ?></span>
+                    Auteur : <span class="hover:underline">
+                        <?php echo e(Str::limit($post->user->name, 30)); ?>
+
+                    </span>
                 </a>
             </div>
         </div>

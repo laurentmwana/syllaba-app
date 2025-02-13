@@ -7,21 +7,10 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-Turbolinks.start()
-
-const preaload = () => {
-    const preloader = document.querySelector('#preloader')
-    if (preloader) {
-        animate('#preloader div', {
-            
-        })
-        document.body.classList.add('overflow-hidden')
-
-        preloader.remove()
-        document.body.classList.remove('overflow-hidden')
-    }
+if (Turbolinks.supported) {
+    Turbolinks.start()
+    Turbolinks.clearCache()
 }
-
 
 const createDataLabelForTable = () => {
     document.querySelectorAll(".custom-response-table").forEach((table) => {
@@ -32,31 +21,6 @@ const createDataLabelForTable = () => {
     });
 }
 
-const accordion = () => {
-
-    document.querySelectorAll('#accordion').forEach(accor => {
-        const accordionItem = accor.querySelector('#accordion-item')
-
-        if (!accordionItem) return
-
-        const buttonAction = accordionItem.querySelector('#accordion-button-action')
-
-        if (!buttonAction) return
-
-        const accordionContent = accordionItem.querySelector('#accordion-content')
-
-        if (!accordionContent) return
-
-    })
-
-}
-
 document.addEventListener("DOMContentLoaded",  () => {
     createDataLabelForTable();
-    accordion()
 });
-
-
-window.addEventListener('load', () => {
-    preaload()
-})

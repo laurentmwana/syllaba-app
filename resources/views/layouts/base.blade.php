@@ -121,10 +121,10 @@
         </div>
 
 
-        <div id="preloader" class="fixed top-0 ring-0 bottom-0 left-0 z-50 flex w-full items-center  justify-center bg-gray-50 gap-6">
+        <!-- <div id="preloader" class="fixed top-0 ring-0 bottom-0 left-0 z-50 flex w-full items-center  justify-center bg-gray-50 gap-6">
             <div class="w-3 h-3 bg-indigo-300 broder border-indigo-400 shadow-sm shadow-indigo-700 rounded animate-spin">
-            </div>
-        </div>
+            </div>ehelper
+        </div> -->
 
 
 

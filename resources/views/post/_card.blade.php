@@ -11,20 +11,20 @@
         </p>
 
         <div class="flex items-center justify-between gap-3">
-
             <div class="flex items-center gap-3">
-                <a href="{{ route('post.show', ['id' => $post->id, 'slug' => Str::slug($post->title)]) }}#author">
+                <a href="{{ route('post.show', mergeQueriesParams(['id' => $post->id, 'slug' => Str::slug($post->title)])) }}#author">
 
                 </a>
 
                 <a href="{{ route('post.show', ['id' => $post->id, 'slug' => Str::slug($post->title)]) }}#author">
-
                 </a>
             </div>
 
             <div>
                 <a class="text-description text-[11px] " href="{{ route('post.show', ['id' => $post->id, 'slug' => Str::slug($post->title)]) }}#author">
-                    Auteur : <span class="hover:underline">{{ Str::limit($post->user->name, 30) }}</span>
+                    Auteur : <span class="hover:underline">
+                        {{ Str::limit($post->user->name, 30) }}
+                    </span>
                 </a>
             </div>
         </div>
