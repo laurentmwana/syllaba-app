@@ -37,6 +37,7 @@ class WelcomeController extends Controller
     {
         return CourseDocument::with(['course', 'yearAcademic'])
             ->orderByDesc('updated_at')
+            ->limit(9)
             ->get();
     }
 

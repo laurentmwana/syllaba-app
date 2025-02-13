@@ -72,14 +72,14 @@
                                 </h2>
                                 <ul class="space-y-2">
                                     <li>
-                                        <Link
+                                        <a
                                             href=""
                                             class="hover:underline flex gap-x-2">
-                                        <i class="bi bi-envelope text-blue-500 hover:text-blue-600"></i>
-                                        <span class="text-muted-foreground">
-                                            Par e-mail
-                                        </span>
-                                        </Link>
+                                            <i class="bi bi-envelope text-blue-500 hover:text-blue-600"></i>
+                                            <span class="text-muted-foreground">
+                                                Par e-mail
+                                            </span>
+                                        </a>
                                     </li>
                                     <li>
                                         <a
@@ -92,14 +92,14 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <Link
+                                        <a
                                             href=""
                                             class="hover:underline flex gap-x-2">
-                                        <i class="bi bi-lock text-red-500 hover:text-red-600"></i>
-                                        <span class="text-muted-foreground">
-                                            Politique de confidentialité
-                                        </span>
-                                        </Link>
+                                            <i class="bi bi-lock text-red-500 hover:text-red-600"></i>
+                                            <span class="text-muted-foreground">
+                                                Politique de confidentialité
+                                            </span>
+                                        </a>
                                     </li>
                                 </ul>
                                 <div class="mt-3 text-start text-description pl-2">

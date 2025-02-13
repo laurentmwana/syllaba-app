@@ -20,7 +20,7 @@
                         <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                             A propos
                         </x-nav-link>
-                        <x-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')">
+                        <x-nav-link :href="route('course-document.index')" :active="request()->routeIs('course-document.index')">
                             Syllabus
                         </x-nav-link>
                         <x-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')">
@@ -35,19 +35,26 @@
                 </div>
 
                 <!-- Settings Dropdown -->
-                <div class="hidden sm:flex sm:items-center sm:ms-6">
+
+                <div class="hidden sm:flex sm:items-center sm:ms-6 gap-4">
+
+
+                    @if (isStudent(Auth::user()->role))
+                    <div class="flex items-center gap-3">
+                        <a href="" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-outs">
+                            <i class="bi bi-bell"></i>
+                        </a>
+
+                        <a href="{{ route('card.index') }}" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out text-base">
+                            <i class="bi bi-shop "></i>
+                        </a>
+                    </div>
+                    @endif
+
                     @auth
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
-                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                <div>{{ Auth::user()->name }}</div>
-
-                                <div class="ms-1">
-                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                            </button>
+                            <div class="uppercase font-semibold bg-indigo-400 hover:bg-indigo-300 cursor-pointer text-gray-50  rounded-full p-2 w-9 h-9 text-sm flex items-center justify-center">{{ Str::limit(Auth::user()->name, 2, '') }}</div>
                         </x-slot>
 
                         <x-slot name="content">
@@ -85,6 +92,7 @@
                     </div>
                     @endguest
                 </div>
+
 
                 <!-- Hamburger -->
                 <div class="-me-2 flex items-center sm:hidden gap-3">

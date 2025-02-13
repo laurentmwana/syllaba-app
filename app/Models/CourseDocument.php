@@ -31,8 +31,32 @@ class CourseDocument extends Model
         return $this->hasMany(Tome::class);
     }
 
+    public function cards(): HasMany
+    {
+        return $this->hasMany(Card::class);
+    }
+
 
     public static function findPaginated(): LengthAwarePaginator
+    {
+        $query = request()->query->get('search');
+
+        $builder = self::with(['course', 'yearAcademic', 'tomes'])->orderByDesc('updated_at');
+
+        if (null === $query || empty($query)) {
+            return $builder->paginate();
+        }
+
+        return MergeQueryColumn::generate($builder, $query, 'name', [
+            'alias',
+            'lastname',
+            'faculty_id',
+            'created_at',
+            'updated_at',
+        ])->paginate();
+    }
+
+    public static function findPaginatedFilters(): LengthAwarePaginator
     {
         $query = request()->query->get('search');
 

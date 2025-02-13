@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
 use App\Models\CourseDocument;
+use App\Services\DataValues\DataValueFormatter;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 
 class CourseDocumentController extends Controller
 {
     public function index(): View
     {
-        $courseDocuments = CourseDocument::findPaginated();
+        $courseDocuments = CourseDocument::findPaginatedFilters();
 
-        return view('course-document.index', compact('courseDocuments'));
+        return view('course-document.index', [
+            'courseDocuments' => $courseDocuments,
+            'years' => DataValueFormatter::getYearAcademics(),
+            'courses' => DataValueFormatter::getCourses(),
+        ]);
     }
 
     public function show(string $slug, int $id): View
@@ -25,6 +29,6 @@ class CourseDocumentController extends Controller
             abort(Response::HTTP_NOT_FOUND, "Le support de cours '#$slug-$id' n'existe pas");
         }
 
-        return view('course-document.index', compact('courseDocument'));
+        return view('course-document.show', ['courseDocument' => $courseDocument]);
     }
 }

@@ -26,7 +26,9 @@
                     </p>
                 </div>
 
-                <img class="w-full h-full md:w-1/2 bg-cover hidden md:block" src="{{getGenerateUrlToStorage($event->image)}}" alt="event image">
+                <div class="p-3 md:w-1/2 hidden md:flex">
+                    <img class="w-full h-full  bg-cover border rounded-sm" src="{{getGenerateUrlToStorage($event->image)}}" alt="event image">
+                </div>
             </div>
         </div>
 

@@ -11,6 +11,7 @@ use App\Models\Course;
 use App\Models\CourseDocument;
 use App\Models\Department;
 use App\Models\Document;
+use App\Models\Faculty;
 use App\Models\Professor;
 use App\Models\Student;
 use App\Models\YearAcademic;
@@ -89,7 +90,11 @@ final class DataValueFormatter
         return $collection;
     }
 
-
+    public static function getFaculties(): Collection
+    {
+        return Faculty::orderByDesc('updated_at')
+            ->get(['id', 'name']);
+    }
 
 
     public static function getStudents(): Collection

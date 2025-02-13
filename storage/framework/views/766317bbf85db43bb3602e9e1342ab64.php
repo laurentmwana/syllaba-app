@@ -29,7 +29,9 @@
                     </p>
                 </div>
 
-                <img class="w-full h-full md:w-1/2 bg-cover hidden md:block" src="<?php echo e(getGenerateUrlToStorage($event->image)); ?>" alt="event image">
+                <div class="p-3 md:w-1/2 hidden md:flex">
+                    <img class="w-full h-full  bg-cover border rounded-sm" src="<?php echo e(getGenerateUrlToStorage($event->image)); ?>" alt="event image">
+                </div>
             </div>
         </div>
 
