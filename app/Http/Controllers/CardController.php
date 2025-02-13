@@ -11,7 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class CardController
+class CardController extends Controller
 {
     public function index(Request $request): View
     {

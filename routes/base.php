@@ -4,6 +4,7 @@ use App\Enums\RoleUserEnum;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\CourseDocumentController;
 
 Route::get('course-document', [CourseDocumentController::class, 'index'])
@@ -30,4 +31,13 @@ Route::middleware(['auth', 'verified', $roleStudent])
 
         Route::post('/card/remove-all', [CardController::class, 'RemoveAll'])
             ->name('card.remove-all');
+
+        Route::post('/news-letter/subscribe', [NewsLetterController::class, 'add'])
+            ->name('news-letter.add');
+
+        Route::post('/news-letter/remove', [NewsLetterController::class, 'remove'])
+            ->name('news-letter.remove');
+
+        Route::get('/news-letter/state', [NewsLetterController::class, 'index'])
+            ->name('news-letter.index');
     });
