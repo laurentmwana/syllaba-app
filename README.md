@@ -3,6 +3,28 @@
 Syllaba Application est une application web qui permet aux étudiant de l'institut supérieur pédagogique de pouvoir télécharger les syllabus de cours.
 
 
+## Comment ça marche
+
+### Installation de package
+
+```
+git clone (ou télécharger le projet sous format zip)
+```
+
+```
+composer install
+```
+
+```
+npm install
+```
+
+## Serveur
+
+```
+composer dev (lance npm run dev et php artisan serve --port=3002)
+```
+
 ## Tech
 
 #### PHP with Laravel
