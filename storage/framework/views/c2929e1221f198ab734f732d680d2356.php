@@ -11,27 +11,27 @@
      <?php $__env->slot('header', null, []); ?> 
          <?php $__env->slot('header', null, []); ?> Mon profil <?php $__env->endSlot(); ?>
 
-    <div class="container py-12">
-        <div class="container-center space-y-8">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    <?php echo $__env->make('profile.partials.update-profile-information-form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <div class="container py-12">
+            <div class="container-center space-y-8">
+                <div class="p-4 sm:p-8 bg-card border shadow-sm rounded-md">
+                    <div class="max-w-xl">
+                        <?php echo $__env->make('profile.partials.update-profile-information-form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    <?php echo $__env->make('profile.partials.update-password-form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <div class="p-4 sm:p-8 bg-card border shadow-sm rounded-md">
+                    <div class="max-w-xl">
+                        <?php echo $__env->make('profile.partials.update-password-form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    </div>
                 </div>
-            </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    <?php echo $__env->make('profile.partials.delete-user-form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <div class="p-4 sm:p-8 bg-card border shadow-sm rounded-md">
+                    <div class="max-w-xl">
+                        <?php echo $__env->make('profile.partials.delete-user-form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginal7442783a15dff2b0d32f2947a462c2e2)): ?>
@@ -41,5 +41,4 @@
 <?php if (isset($__componentOriginal7442783a15dff2b0d32f2947a462c2e2)): ?>
 <?php $component = $__componentOriginal7442783a15dff2b0d32f2947a462c2e2; ?>
 <?php unset($__componentOriginal7442783a15dff2b0d32f2947a462c2e2); ?>
-<?php endif; ?>
-<?php /**PATH F:\laravel-app\syllaba-app\resources\views/profile/edit.blade.php ENDPATH**/ ?>
+<?php endif; ?><?php /**PATH F:\laravel-app\syllaba-app\resources\views/profile/edit.blade.php ENDPATH**/ ?>

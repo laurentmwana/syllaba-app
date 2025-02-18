@@ -43,7 +43,6 @@
             {{ $slot }}
         </main>
 
-
         <div class="container pt-[100px]">
             <footer class="py-8" id="footer">
                 <div class="container-center">
@@ -72,7 +71,7 @@
                                 <ul class="space-y-2">
                                     <li>
                                         <a
-                                            href=""
+                                            href="{{ route('contact.index') }}"
                                             class="hover:underline flex gap-x-2">
                                             <i class="bi bi-envelope text-blue-500 hover:text-blue-600"></i>
                                             <span class="text-muted-foreground">
@@ -87,16 +86,6 @@
                                             <i class="bi bi-whatsapp text-green-500 hover:text-green-600"></i>
                                             <span class="text-muted-foreground">
                                                 Par Whatsapp
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                            href=""
-                                            class="hover:underline flex gap-x-2">
-                                            <i class="bi bi-lock text-red-500 hover:text-red-600"></i>
-                                            <span class="text-muted-foreground">
-                                                Politique de confidentialité
                                             </span>
                                         </a>
                                     </li>
@@ -119,13 +108,6 @@
                 </p>
             </footer>
         </div>
-
-
-        <!-- <div id="preloader" class="fixed top-0 ring-0 bottom-0 left-0 z-50 flex w-full items-center  justify-center bg-gray-50 gap-6">
-            <div class="w-3 h-3 bg-indigo-300 broder border-indigo-400 shadow-sm shadow-indigo-700 rounded animate-spin">
-            </div>ehelper
-        </div> -->
-
 
 
     </div>
